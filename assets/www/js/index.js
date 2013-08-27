@@ -47,3 +47,34 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function displayArticles() {
+	var urls = ['http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss',
+	            'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax'];
+	
+	for (i = 0; i < urls.length; i++) {
+		displayArticle(urls[i]);
+	}
+}
+
+function displayArticle(url) {
+$.jGFeed(url,
+		  function(feeds){
+		    // Check for errors
+		    if(!feeds){
+		      // there was an error
+		      alert('Error!');
+		      return false;
+		    }
+		    // do whatever you want with feeds here
+		    for (var i=0; i<feeds.entries.length; i++){
+		      var entry = feeds.entries[i];
+	          $('#adviceList').append('<li>' 
+	        		  + '<h1>' + entry.title + '</h1>'
+	        		  + '<p>' + entry.content + '</p>'
+	        		  + '</li>');
+		      //feed.push(entry);
+		      //alert(entry.title);
+		    }
+		  }, 10);
+}

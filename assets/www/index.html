@@ -61,29 +61,10 @@
 			</div>
 		</div>
         <script type="text/javascript">
-            app.initialize();
-            
-            var feed = new Array();
-            $.jGFeed('http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss',
-            		  function(feeds){
-            		    // Check for errors
-            		    if(!feeds){
-            		      // there was an error
-            		      alert('Error!');
-            		      return false;
-            		    }
-            		    // do whatever you want with feeds here
-            		    for (var i=0; i<feeds.entries.length; i++){
-            		      var entry = feeds.entries[i];
-            	          $('#adviceList').append('<li>' 
-            	        		  + '<h1>' + entry.title + '</h1>'
-            	        		  + '<p>' + entry.content + '</p>'
-            	        		  + '</li>');
-            		      //feed.push(entry);
-            		      //alert(entry.title);
-            		    }
-            		  }, 10);
-            //alert('size of feed: ' + feed.length); 
+        	$(function() {
+            	app.initialize();
+            	displayArticles();
+        	});
         </script>
     </body>
 </html>
