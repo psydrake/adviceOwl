@@ -1,4 +1,4 @@
-adviceOwl
+Advice Owl
 ============
 
-Advice column aggregator
+Mobile advice column aggregator
