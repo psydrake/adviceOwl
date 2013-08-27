@@ -49,37 +49,33 @@ var app = {
 };
 
 function displayArticles() {
-	var urls = ['http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss',
-	            'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax',
-	            'http://www.rsssearchhub.com/preview/the-stranger-seattle-s-only-newspaper-savage-love-rss-rDDDJKd/',
-	            'http://www.creators.com/advice/annies-mailbox.rss',
-	            'http://www.creators.com/advice/dear-margo.rss',
-	            'http://www.nerve.com/taxonomy/term/95215/all/feed',
-	            'http://sentinelenterprise.disqus.com/y_reaches_out_isolated_niece/latest.rss'];
+	var feeds = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', followLink: false},
+	            {name: 'Carolyn Hax', url: 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax', followLink: true},
+	            {name: 'Savage Love', url: 'http://www.thestranger.com/gyrobase/Rss.xml?category=258', followLink: false},
+	            {name: "Annie's Mailbox", url: 'http://www.creators.com/advice/annies-mailbox.rss', followLink: true},
+	            {name: 'Dear Margo', url: 'http://www.creators.com/advice/dear-margo.rss', followLink: true},
+	            {name: 'Miss Information', url: 'http://www.nerve.com/taxonomy/term/95215/all/feed', followLink: true}];
 	
-	for (i = 0; i < urls.length; i++) {
-		displayArticle(urls[i]);
+	for (i = 0; i < feeds.length; i++) {
+		displayEntries(feeds[i]['name'], feeds[i]['url'], feeds[i]['followLink']);
 	}
+    //entries.sort(function(a,b){return new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()});
 }
 
-function displayArticle(url) {
-$.jGFeed(url,
-		  function(feeds){
-		    // Check for errors
-		    if(!feeds){
-		      // there was an error
-		      alert('Error!');
-		      return false;
-		    }
-		    // do whatever you want with feeds here
-		    for (var i=0; i<feeds.entries.length; i++){
-		      var entry = feeds.entries[i];
-	          $('#adviceList').append('<li>' 
-	        		  + '<h1>' + entry.title + '</h1>'
-	        		  + '<p>' + entry.content + '</p>'
-	        		  + '</li>');
-		      //feed.push(entry);
-		      //alert(entry.title);
-		    }
+function displayEntries(name, url, followLink) {
+	$.jGFeed(url, 
+			function(feeds){
+			    // Check for errors
+			    if(!feeds){
+			      console.log('Error!');
+			      return false;
+			    }
+			    for (var i=0; i<feeds.entries.length; i++){
+	                var entry = feeds.entries[i];
+			        $('#adviceList').append('<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '">' + entry.publishedDate
+			      		  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + entry.title + '</h1>'
+			      		  + '<p>' + entry.content + '</p>'
+			      		  + '</li>');
+				    }
 		  }, 10);
 }
