@@ -50,7 +50,12 @@ var app = {
 
 function displayArticles() {
 	var urls = ['http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss',
-	            'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax'];
+	            'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax',
+	            'http://www.rsssearchhub.com/preview/the-stranger-seattle-s-only-newspaper-savage-love-rss-rDDDJKd/',
+	            'http://www.creators.com/advice/annies-mailbox.rss',
+	            'http://www.creators.com/advice/dear-margo.rss',
+	            'http://www.nerve.com/taxonomy/term/95215/all/feed',
+	            'http://sentinelenterprise.disqus.com/y_reaches_out_isolated_niece/latest.rss'];
 	
 	for (i = 0; i < urls.length; i++) {
 		displayArticle(urls[i]);
