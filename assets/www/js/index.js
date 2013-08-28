@@ -64,18 +64,38 @@ function displayArticles() {
 
 function displayEntries(name, url, followLink) {
 	$.jGFeed(url, 
-			function(feeds){
+			function(feeds) {
 			    // Check for errors
 			    if(!feeds){
 			      console.log('Error!');
 			      return false;
 			    }
-			    for (var i=0; i<feeds.entries.length; i++){
+			    for (var i=0; i<feeds.entries.length; i++) {
 	                var entry = feeds.entries[i];
-			        $('#adviceList').append('<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '">' + entry.publishedDate
-			      		  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + entry.title + '</h1>'
-			      		  + '<p>' + entry.content + '</p>'
-			      		  + '</li>');
-				    }
-		  }, 10);
+	                var entryTs = new Date(entry.publishedDate).getTime();
+	                if ($('li[data-timestamp]').length === 0) {
+				        $('#adviceList').append(buildEntryString(name, entry));
+	                }
+	                else {
+		                $('li[data-timestamp]').each(function(index) {
+		                	var compTs = $(this).attr('data-timestamp');
+		                	console.log('entryTs: ', entryTs, ', compTs: ', compTs, ' entryTs > compTs: ', entryTs > compTs);
+		                	if (entryTs > compTs) {
+		    			        $(this).before(buildEntryString(name, entry));
+	   					    }
+		                	else {
+		    			        $(this).after(buildEntryString(name, entry));
+		                	}
+		                	return false;
+	                	});
+	                }
+			    }
+	}, 10);
+}
+
+function buildEntryString(name, entry) {
+	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '">' + entry.publishedDate
+	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + entry.title + '</h1>'
+	  + '<p>' + entry.content + '</p>'
+	  + '</li>';
 }
