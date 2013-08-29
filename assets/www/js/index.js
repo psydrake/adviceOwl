@@ -93,7 +93,7 @@ function sortElements(marker) {
 	}
 
 	$('#adviceList li').sort(function(a, b) {
-		//console.log('a > b...', a.dataset.timestamp > b.dataset.timestamp)
+		//console.log('a:', a.dataset.timestamp, 'b:', b.dataset.timestamp);
 	    return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
 	}).appendTo('#adviceList');
 	
@@ -106,5 +106,6 @@ function buildEntryString(name, entry) {
 	  + '<p><a href="' + entry.link + '">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
 	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + entry.title + '</h1>'
 	  + '<p>' + entry.content + '</p>'
+	  + '<div class="readLink"><a href="' + entry.link + '">Read</a></div>' 
 	  + '</li>';
 }
