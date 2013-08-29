@@ -140,7 +140,12 @@ h1 {
 	margin-top: 10pt;
 	margin-right: 10pt;
 	margin-bottom: 15pt;
-	padding: 12pt;
+
+	padding-left: 12pt;
+	padding-top: 6pt;
+	padding-right: 12pt;
+	padding-bottom: 12pt;
+
 	-moz-border-radius-topleft: 10px;
 	-moz-border-radius-topright: 10px;
   	-moz-border-radius-bottomright: 10px;
