@@ -36,8 +36,8 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;
-    /*font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
-    font-family: Sabon, Garamond Premier, Georgia, serif;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    /*font-family: Sabon, Garamond Premier, Georgia, serif;*/
     font-size: x-large;
     height:100%;
     margin:0px;
@@ -115,6 +115,13 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
+#adviceContent {
+	margin-right: 2%;
+}
+
 #adviceList {
 	list-style-type: none;
+	/*li {
+		background: white;
+	}*/
 }

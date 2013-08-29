@@ -48,53 +48,61 @@ var app = {
     }
 };
 
-function displayArticles() {
-	var feeds = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', followLink: false},
+var MILLISECONDS_WAIT = 3000;
+
+function displayColumns() {
+	var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', followLink: false},
 	            {name: 'Carolyn Hax', url: 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax', followLink: true},
 	            {name: 'Savage Love', url: 'http://www.thestranger.com/gyrobase/Rss.xml?category=258', followLink: false},
 	            {name: "Annie's Mailbox", url: 'http://www.creators.com/advice/annies-mailbox.rss', followLink: true},
 	            {name: 'Dear Margo', url: 'http://www.creators.com/advice/dear-margo.rss', followLink: true},
 	            {name: 'Miss Information', url: 'http://www.nerve.com/taxonomy/term/95215/all/feed', followLink: true}];
 	
-	for (i = 0; i < feeds.length; i++) {
-		displayEntries(feeds[i]['name'], feeds[i]['url'], feeds[i]['followLink']);
+	for (i = 0; i < feedList.length; i++) {
+		displayColumnEntries(feedList[i]['name'], feedList[i]['url']);
 	}
-    //entries.sort(function(a,b){return new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()});
 }
 
-function displayEntries(name, url, followLink) {
-	$.jGFeed(url, 
-			function(feeds) {
-			    // Check for errors
-			    if(!feeds){
-			      console.log('Error!');
-			      return false;
-			    }
-			    for (var i=0; i<feeds.entries.length; i++) {
-	                var entry = feeds.entries[i];
-	                var entryTs = new Date(entry.publishedDate).getTime();
-	                if ($('li[data-timestamp]').length === 0) {
-				        $('#adviceList').append(buildEntryString(name, entry));
-	                }
-	                else {
-		                $('li[data-timestamp]').each(function(index) {
-		                	var compTs = $(this).attr('data-timestamp');
-		                	console.log('entryTs: ', entryTs, ', compTs: ', compTs, ' entryTs > compTs: ', entryTs > compTs);
-		                	if (entryTs > compTs) {
-		    			        $(this).before(buildEntryString(name, entry));
-	   					    }
-		                	else {
-		    			        $(this).after(buildEntryString(name, entry));
-		                	}
-		                	return false;
-	                	});
-	                }
-			    }
-	}, 10);
+function displayColumnEntries(name, url) {
+	$.jGFeed(url, function(feeds) {
+	    // Check for errors
+	    if(!feeds || typeof feeds === 'undefined') {
+	    	console.log('Error!');
+	    	return false;
+	    }
+	    console.log('feeds: ', feeds);
+	
+		for (var j=0; j<feeds.entries.length; j++) {
+	        var entry = feeds.entries[j];
+	        var entryTs = new Date(entry.publishedDate).getTime();
+	        
+	        $('#adviceList').append(buildEntryString(name, entry));
+		}
+	
+		// sort 3 times, 3 seconds apart (9 seconds total)
+		window.setTimeout('sortElements(' + 3 + ')', MILLISECONDS_WAIT);
+	}, 3);
+}
+
+
+function sortElements(marker) {
+	console.log('marker: ', marker, ', typeof: ', typeof marker);
+	if (marker < 1) {
+		return;
+	}
+
+	$('#adviceList li').sort(function(a, b) {
+		//console.log('a > b...', a.dataset.timestamp > b.dataset.timestamp)
+	    return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
+	}).appendTo('#adviceList');
+	
+	window.setTimeout('sortElements(' + --marker + ')', MILLISECONDS_WAIT);
 }
 
 function buildEntryString(name, entry) {
-	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '">' + entry.publishedDate
+	var dateArr = entry.publishedDate.split(' ');
+	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '">' 
+	  + '<p><a href="' + entry.link + '">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
 	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + entry.title + '</h1>'
 	  + '<p>' + entry.content + '</p>'
 	  + '</li>';

@@ -27,8 +27,11 @@
 		<script type="text/javascript" src="js/jquery.mobile-1.2.0.min.js"></script>
 		<script type="text/javascript" src="js/jquery.jgfeed-min.js"></script>        
         <script type="text/javascript" src="js/cordova-2.2.0.js"></script>
+        <!--<script type="text/javascript" src="js/sortElements.js"></script>-->
         <script type="text/javascript" src="js/index.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.min.css" />
+        <!--<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css" type="text/css" rel="stylesheet" >-->
+        <!--<script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/"></script>-->
         <link rel="stylesheet" type="text/css" href="css/index.css" />        
         <style>
         	/*body { background-color: #6CBCD5; } 4671D5 1240AB 2A44B0 06266F*/
@@ -63,7 +66,8 @@
         <script type="text/javascript">
         	$(function() {
             	app.initialize();
-            	displayArticles();
+            	displayColumns();
+           	    //$("div[data-role]='page'").themeswitcher();
         	});
         </script>
     </body>
