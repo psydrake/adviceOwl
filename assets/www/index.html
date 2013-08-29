@@ -49,7 +49,7 @@
 			</div>
 			<div data-role="content app">
 				<div>
-					<div id="loading">
+					<div id="ajax-loader">
 						<img id="loadingImage" src="img/loading.gif" alt="Please Wait..."/>
 					</div>
 					<div id="adviceContent">
@@ -65,9 +65,9 @@
 		</div>
         <script type="text/javascript">
         	$(function() {
+        		$('#loadingImage').show();
             	app.initialize();
             	displayColumns();
-           	    //$("div[data-role]='page'").themeswitcher();
         	});
         </script>
     </body>

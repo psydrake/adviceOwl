@@ -79,8 +79,8 @@ function displayColumnEntries(name, url) {
 	        $('#adviceList').append(buildEntryString(name, entry));
 		}
 	
-		// sort 3 times, 3 seconds apart (9 seconds total)
-		window.setTimeout('sortElements(' + 3 + ')', MILLISECONDS_WAIT);
+		// sort 2 times, 3 seconds apart (6 seconds total)
+		window.setTimeout('sortElements(' + 2 + ')', MILLISECONDS_WAIT);
 	}, 3);
 }
 
@@ -88,6 +88,7 @@ function displayColumnEntries(name, url) {
 function sortElements(marker) {
 	console.log('marker: ', marker, ', typeof: ', typeof marker);
 	if (marker < 1) {
+		$('#loadingImage').fadeOut('slow');
 		return;
 	}
 
