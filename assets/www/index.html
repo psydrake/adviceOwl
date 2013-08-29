@@ -48,6 +48,16 @@
 					<div id="ajax-loader">
 						<img id="loadingImage" src="img/loading.gif" alt="Please Wait..."/>
 					</div>
+					<div id="menu">
+						<ul data-role="listview" data-inset="true">
+					        <li><a href="#" id="goRefresh" onclick="javascript:return refreshColumns();">Refresh</a></li>
+				        	<li><a href="#" id="goAbout" onclick="javascript:return displayAbout();">About</a></li>
+			    		</ul>
+					</div>
+					<div id="about" data-role="popup">
+						<h1>Advice Owl</h1>
+						<p>Get your advice column fix, all in one place!</p>
+					</div>
 					<div id="adviceContent">
 					  <ul id="adviceList">
 					  </ul>	
@@ -64,8 +74,8 @@
         <script type="text/javascript">
         	$(function() {
         		$('#loadingImage').show();
-            	//app.initialize();
-            	displayColumns();
+            	app.initialize();
+            	loadColumns();
         	});
         </script>
     </body>

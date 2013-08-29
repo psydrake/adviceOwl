@@ -33,8 +33,11 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
+        //app.receivedEvent('deviceready');
+        document.addEventListener("menubutton", menuKeyDown, false);
+        document.addEventListener("backbutton", backKeyDown, false);
+    }
+    /*
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
@@ -45,14 +48,28 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+        //alert('Received Event: ' + id);
+    }*/
 };
 
-var MILLISECONDS_WAIT = 3000;
-var NUM_ENTRIES_PER_COLUMN = 5;
+function menuKeyDown() { 
+	$('#menu').show();
+	return false;
+}
 
-function displayColumns() {
-	var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', image: 'prudie.jpg'},
+function backKeyDown() {
+	if ($('#menu').is(':visible')) {
+		$('#menu').hide();
+		return false;
+	}
+	
+	navigator.app.exitApp();
+	return true;
+}
+
+var MILLISECONDS_WAIT = 3000;
+var NUM_ENTRIES_PER_COLUMN = 4;
+var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', image: 'prudie.jpg'},
 	            {name: 'Carolyn Hax', url: 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax', image: 'hax.jpg'},
 	            {name: 'Savage Love', url: 'http://www.thestranger.com/gyrobase/Rss.xml?category=258', image: 'savage.jpg'},
 	            {name: "Annie's Mailbox", url: 'http://www.creators.com/advice/annies-mailbox.rss', image: 'annies.jpg'},
@@ -62,7 +79,22 @@ function displayColumns() {
 	            {name: 'The Advice Goddess', url: 'http://www.creators.com/advice/advice-goddess-amy-alkon.rss', image: 'amy_alkon.jpg'},
 	            {name: 'Tales From The Front', url: 'http://www.creators.com/advice/tales-from-the-front.rss', image: 'cheryl_lavin.jpg'},
 	            {name: 'At Work', url: 'http://www.creators.com/advice/at-work-lindsey-novak.rss', image: 'lindsey_novak.jpg'}];
-	
+
+function displayAbout() {
+	$('#menu').hide();
+	$('#about').popup('open');
+	return false;
+}
+
+function refreshColumns() {
+	$('#menu').hide();
+	loadColumns();
+	$('html, body').animate({ scrollTop: 0 }, 'fast');
+	return false;
+}
+
+function loadColumns() {
+	$('#loadingImage').show('slow');
 	for (i = 0; i < feedList.length; i++) {
 		displayColumnEntries(feedList[i]['name'], feedList[i]['url'], feedList[i]['image']);
 	}
@@ -75,13 +107,12 @@ function displayColumnEntries(name, url, image) {
 	    	console.log('Error!');
 	    	return false;
 	    }
-	    //console.log('feeds: ', feeds);
 	
 		for (var j=0; j<feeds.entries.length; j++) {
 	        var entry = feeds.entries[j];
-	        var entryTs = new Date(entry.publishedDate).getTime();
-	        
-	        $('#adviceList').append(buildEntryString(name, entry, image));
+	        if ($('#adviceList li[data-entry-id="' + entry.link + '"]').length === 0) {
+	        	$('#adviceList').append(buildEntryString(name, entry, image));
+	        }
 		}
 	
 		// sort 2 times, 3 seconds apart (6 seconds total)
@@ -110,7 +141,7 @@ function buildEntryString(name, entry, image) {
 	if (titleMatch) { // check if the input string matched the pattern
 	     title = title.substring(0, title.search(titleMatch[1])); // get the capturing group
 	}
-	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '">' 
+	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '" data-entry-id="' + entry.link + '">' 
 	  + '<p><a href="' + entry.link + '">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
 	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + title + '</h1>'
 	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture" title="' + name + '"/>' : '') 

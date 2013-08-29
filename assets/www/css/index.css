@@ -165,7 +165,24 @@ h1 {
     top: 120pt;
     margin-left: -32px; /* -1 * image width / 2 */
     margin-top: -32px;  /* -1 * image height / 2 */
-    display: block;     
+    display: none;     
+}
+
+#menu {
+    position: fixed;
+    left: 20%;
+    right: 20%;
+    top: 100pt;
+    font-size: xx-large !important;  
+    font-weight: 700 !important;
+    display: none;     
+}
+
+#about {
+	position: fixed;
+	left: 15%;
+	right: 15%;
+    font-size: xx-large !important;  
 }
 
 .columnistImage {
