@@ -131,6 +131,10 @@ h1 {
 	list-style-type: none;
 }
 
+.adviceEntry {
+	padding-top: 6pt;	
+}
+
 .readLink {
 	text-align: right;
 }
@@ -142,7 +146,7 @@ h1 {
 	margin-bottom: 15pt;
 
 	padding-left: 12pt;
-	padding-top: 6pt;
+	padding-top: 4pt;
 	padding-right: 12pt;
 	padding-bottom: 12pt;
 
@@ -162,4 +166,11 @@ h1 {
     margin-left: -32px; /* -1 * image width / 2 */
     margin-top: -32px;  /* -1 * image height / 2 */
     display: block;     
+}
+
+.columnistImage {
+	float: left;
+	width: 155px;
+	padding-right: 12pt;
+	padding-bottom: 6pt;
 }
