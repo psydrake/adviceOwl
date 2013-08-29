@@ -49,6 +49,7 @@ var app = {
 };
 
 var MILLISECONDS_WAIT = 3000;
+var NUM_ENTRIES_PER_COLUMN = 5;
 
 function displayColumns() {
 	var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', image: 'prudie.jpg'},
@@ -56,7 +57,11 @@ function displayColumns() {
 	            {name: 'Savage Love', url: 'http://www.thestranger.com/gyrobase/Rss.xml?category=258', image: 'savage.jpg'},
 	            {name: "Annie's Mailbox", url: 'http://www.creators.com/advice/annies-mailbox.rss', image: 'annies.jpg'},
 	            {name: 'Dear Margo', url: 'http://www.creators.com/advice/dear-margo.rss', image: 'margo.jpg'},
-	            {name: 'Miss Information', url: 'http://www.nerve.com/taxonomy/term/95215/all/feed', image: 'miss_information.jpg'}];
+	            {name: 'Miss Information', url: 'http://www.nerve.com/taxonomy/term/95215/all/feed', image: 'miss_information.jpg'},
+	            {name: 'Questionable Advice', url: 'http://www.creators.com/advice/questionable-advice.rss', image: 'jessica_leigh.jpg'},
+	            {name: 'The Advice Goddess', url: 'http://www.creators.com/advice/advice-goddess-amy-alkon.rss', image: 'amy_alkon.jpg'},
+	            {name: 'Tales From The Front', url: 'http://www.creators.com/advice/tales-from-the-front.rss', image: 'cheryl_lavin.jpg'},
+	            {name: 'At Work', url: 'http://www.creators.com/advice/at-work-lindsey-novak.rss', image: 'lindsey_novak.jpg'}];
 	
 	for (i = 0; i < feedList.length; i++) {
 		displayColumnEntries(feedList[i]['name'], feedList[i]['url'], feedList[i]['image']);
@@ -81,13 +86,12 @@ function displayColumnEntries(name, url, image) {
 	
 		// sort 2 times, 3 seconds apart (6 seconds total)
 		window.setTimeout('sortElements(' + 2 + ')', MILLISECONDS_WAIT);
-	}, 4); // show 4 most recent articles from each columnist
+	}, NUM_ENTRIES_PER_COLUMN);
 }
 
 
 function sortElements(marker) {
 	$('#adviceList li').sort(function(a, b) {
-		//console.log('a:', a.dataset.timestamp, 'b:', b.dataset.timestamp);
 	    return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
 	}).appendTo('#adviceList');
 
@@ -99,12 +103,17 @@ function sortElements(marker) {
 }
 
 function buildEntryString(name, entry, image) {
-	console.log('image: ', image, ', typeof image: ', typeof image);
+	//console.log('image:', image, ', typeof image:', typeof image);
 	var dateArr = entry.publishedDate.split(' ');
+	var title = entry.title;
+	var titleMatch = title.match(/.*(\sfor\s\d\d\/\d\d\/\d\d\d\d)$/);
+	if (titleMatch) { // check if the input string matched the pattern
+	     title = title.substring(0, title.search(titleMatch[1])); // get the capturing group
+	}
 	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '">' 
 	  + '<p><a href="' + entry.link + '">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
-	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + entry.title + '</h1>'
-	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture"/>' : '') 
+	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + title + '</h1>'
+	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture" title="' + name + '"/>' : '') 
 	  + entry.content + '</div>'
 	  + '<div class="readLink"><a href="' + entry.link + '">Read</a></div>' 
 	  + '</li>';
