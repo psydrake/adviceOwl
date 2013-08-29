@@ -86,7 +86,7 @@ function displayColumnEntries(name, url) {
 
 
 function sortElements(marker) {
-	console.log('marker: ', marker, ', typeof: ', typeof marker);
+	//console.log('marker: ', marker, ', typeof: ', typeof marker);
 	if (marker < 1) {
 		$('#loadingImage').fadeOut('slow');
 		return;
