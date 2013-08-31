@@ -62,6 +62,10 @@ function backKeyDown() {
 		$('#menu').hide();
 		return false;
 	}
+	else if (! $('#about').hasClass('ui-selectmenu-hidden')) {
+		$('#about').popup('close');
+		return false;
+	}
 	
 	navigator.app.exitApp();
 	return true;
@@ -142,10 +146,10 @@ function buildEntryString(name, entry, image) {
 	     title = title.substring(0, title.search(titleMatch[1])); // get the capturing group
 	}
 	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '" data-entry-id="' + entry.link + '">' 
-	  + '<p><a href="' + entry.link + '">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
+	  + '<p><a href="#" onclick="window.open(\'' + entry.link + '\', \'_system\');">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
 	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + title + '</h1>'
 	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture" title="' + name + '"/>' : '') 
 	  + entry.content + '</div>'
-	  + '<div class="readLink"><a href="' + entry.link + '">Read</a></div>' 
+	  + '<div class="readLink"><a href="#" onclick="window.open(\'' + entry.link + '\', \'_system\');">Read</a></div>' 
 	  + '</li>';
 }
