@@ -66,9 +66,13 @@ function backKeyDown() {
 		$('#about').popup('close');
 		return false;
 	}
-	
+
+	return exitApp();
+}
+
+function exitApp() {
 	navigator.app.exitApp();
-	return true;
+	return false;
 }
 
 var MILLISECONDS_WAIT = 3000;

@@ -131,6 +131,10 @@ h1 {
 	list-style-type: none;
 }
 
+#aboutList {
+	list-style-type: none;
+}
+
 .adviceEntry {
 	padding-top: 6pt;	
 }

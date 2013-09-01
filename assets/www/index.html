@@ -52,11 +52,16 @@
 						<ul data-role="listview" data-inset="true">
 					        <li><a href="#" id="goRefresh" onclick="javascript:return refreshColumns();">Refresh</a></li>
 				        	<li><a href="#" id="goAbout" onclick="javascript:return displayAbout();">About</a></li>
+				        	<li><a href="#" id="goAbout" onclick="javascript:return exitApp();">Exit</a></li>				        	
 			    		</ul>
 					</div>
 					<div id="about" data-role="popup">
 						<h1>Advice Owl</h1>
-						<p>Get your advice column fix, all in one place!</p>
+						<ul id="aboutList">
+							<li>Get your advice column fix, all in one place. It's a hoot!</li>
+							<li>Version 1.0</li>
+							<li>by Drake Emko</li>
+						</ul>
 					</div>
 					<div id="adviceContent">
 					  <ul id="adviceList">
