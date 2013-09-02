@@ -53,18 +53,22 @@ var app = {
 };
 
 function menuKeyDown() { 
-	$('#menu').show();
+	$('#menu').slideDown('slow');
 	return false;
 }
 
 function backKeyDown() {
+	var hidSomething = false;
 	if ($('#menu').is(':visible')) {
 		$('#menu').hide();
-		return false;
+		hidSomething = true;
 	}
-	else if (! $('#about').hasClass('ui-selectmenu-hidden')) {
+	if (! $('#about').hasClass('ui-selectmenu-hidden')) {
 		$('#about').popup('close');
-		return false;
+		hidSomething = true;
+	}
+	if (hidSomething) {
+		return false; // back button was used to exit a popup, don't exit app
 	}
 
 	return exitApp();
@@ -75,7 +79,7 @@ function exitApp() {
 	return false;
 }
 
-var MILLISECONDS_WAIT = 3000;
+var MILLISECONDS_WAIT = 5000;
 var NUM_ENTRIES_PER_COLUMN = 4;
 var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', image: 'prudie.jpg'},
 	            {name: 'Carolyn Hax', url: 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax', image: 'hax.jpg'},
@@ -122,9 +126,9 @@ function displayColumnEntries(name, url, image) {
 	        	$('#adviceList').append(buildEntryString(name, entry, image));
 	        }
 		}
-	
-		// sort 2 times, 3 seconds apart (6 seconds total)
-		window.setTimeout('sortElements(' + 2 + ')', MILLISECONDS_WAIT);
+
+		// sort 1 time(s), 5 seconds total wait
+		window.setTimeout('sortElements(' + 1 + ')', MILLISECONDS_WAIT);
 	}, NUM_ENTRIES_PER_COLUMN);
 }
 
