@@ -21,12 +21,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
         <title>Advice Owl</title>
    		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile-1.2.0.min.js"></script>
-		<script type="text/javascript" src="js/jquery.jgfeed-min.js"></script>        
-        <script type="text/javascript" src="js/cordova-2.2.0.js"></script>
+		<script type="text/javascript" src="js/jquery.jgfeed-min.js"></script>
+		<script type="text/javascript" src="js/cordova-2.2.0.js"></script>
+   		<!--<script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>-->   				
         <script type="text/javascript" src="js/index.js"></script>
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.min.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />        
@@ -55,7 +56,7 @@
 				        	<li><a href="#" id="goAbout" onclick="javascript:return exitApp();">Exit</a></li>				        	
 			    		</ul>
 					</div>
-					<div id="about" data-role="popup">
+					<div id="about" data-role="popup" data-native-menu="false">
 						<h1>Advice Owl</h1>
 						<ul id="aboutList">
 							<li>Get your advice column fix, all in one place. It's a hoot!</li>
