@@ -53,25 +53,25 @@ var app = {
 };
 
 function menuKeyDown() { 
-	$('#menu').slideDown('slow');
+	$('#menu').slideDown('fast');
 	return false;
 }
 
 function backKeyDown() {
 	console.log('in backKeyDown');
-	var hidSomething = false;
+	var exit = true;
 	if ($('#menu').is(':visible')) {
 		console.log('hide main menu');
 		$('#menu').hide();
-		hidSomething = true;
-	}
+		exit = false;
+	}	
+	//if ($('#aboutList').is(':visible')) {
 	if (! $('#about').hasClass('ui-selectmenu-hidden')) {
 		console.log('close about menu');
 		$('#about').popup('close');
-		hidSomething = true;
 	}
-	if (hidSomething) {
-		console.log('hidSomthing true - do not exit app');
+	if (!exit) {
+		console.log('do not exit app');
 		return false; // back button was used to exit a popup, don't exit app
 	}
 
@@ -100,7 +100,7 @@ var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life
 
 function displayAbout() {
 	$('#menu').hide();
-	$('#about').popup('open');
+	$('#about').popup('open', {positionTo: '#loadingImage'});
 	return false;
 }
 

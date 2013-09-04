@@ -132,10 +132,6 @@ h1 {
 	padding-left: 8pt;
 }
 
-#aboutList {
-	list-style-type: none;
-}
-
 .adviceEntry {
 	padding-top: 6pt;	
 }
@@ -179,15 +175,28 @@ h1 {
     left: 5pt;
     width: 80%;
     font-size: large;  
-    /*font-weight: 700 !important;*/
     display: none;     
 }
 
 #about {
 	position: fixed;
-	left: 15%;
-	right: 15%;
-    font-size: large;  
+	left: 8pt;
+	right: 8pt;
+    font-size: large;
+}
+
+#aboutList {
+	list-style-type: none;
+}
+
+#aboutList li {
+	padding: 8pt 8pt;
+}
+
+#aboutOwlImg {
+	float: left;
+	width: 150px;
+	padding: 8pt;
 }
 
 .columnistImage {
