@@ -65,7 +65,6 @@ function backKeyDown() {
 		$('#menu').hide();
 		exit = false;
 	}	
-	//if ($('#aboutList').is(':visible')) {
 	if (! $('#about').hasClass('ui-selectmenu-hidden')) {
 		console.log('close about menu');
 		$('#about').popup('close');
@@ -99,8 +98,9 @@ var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life
 	            {name: 'At Work', url: 'http://www.creators.com/advice/at-work-lindsey-novak.rss', image: 'lindsey_novak.jpg'}];
 
 function displayAbout() {
-	$('#menu').hide();
-	$('#about').popup('open', {positionTo: '#loadingImage'});
+	$('html, body').animate({ scrollTop: 0 }, 'fast');
+	window.setTimeout(function () {$('#about').popup('open', {positionTo: '#top'});}, 800);
+	$('#menu').slideUp('fast');		
 	return false;
 }
 
