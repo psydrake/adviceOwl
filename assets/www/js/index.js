@@ -152,24 +152,32 @@ function sortElements(marker) {
 }
 
 function buildEntryString(name, entry, image) {
-	//console.log('image:', image, ', typeof image:', typeof image);
 	var dateArr = entry.publishedDate.split(' ');
 	var title = entry.title;
+	// remove the "for MM/DD/YYY" from the end of creator.com titles
 	var titleMatch = title.match(/.*(\sfor\s\d\d\/\d\d\/\d\d\d\d)$/);
 	if (titleMatch) { // check if the input string matched the pattern
 	     title = title.substring(0, title.search(titleMatch[1])); // get the capturing group
 	}
 	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '" data-entry-id="' + entry.link + '">' 
-	  + '<p><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');" target="_blank" location="yes">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
+	  + '<p><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
 	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + title + '</h1>'
 	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture" title="' + name + '"/>' : '') 
-	  + entry.content + '</div>'
-	  + '<div class="readLink"><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');" target="_blank" location="yes">Read</a></div>' 
+	  + fixContent(entry.content) + '</div>'
+	  + '<div class="readLink"><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">Read</a></div>' 
 	  + '</li>';
 }
 
+function fixContent(content) {
+	// replace "a href" links with in app browser links 
+	var regex = new RegExp("(<a.*?href\s*=\s*)\"(.*?)\"(.*?>)", 'g');
+	if (content.match(regex)) {
+	    content = content.replace(regex, "$1" + '"javascript:void(0);" onclick="openLink(\'' + "$2" + '\');"' + "$3");
+	}
+	return content;
+}
+
 function openLink(link) {
-	//window.open(entry.link, '_blank', 'location=yes');
 	navigator.app.loadUrl(link, { openExternal: true });
 	//window.plugins.childBrowser.showWebPage(link, { showLocationBar: true });
 }
