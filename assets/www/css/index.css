@@ -133,7 +133,8 @@ h1 {
 }
 
 .adviceEntry {
-	padding-top: 6pt;	
+	padding-top: 6pt;
+	min-height: 190px;	
 }
 
 .readLink {
