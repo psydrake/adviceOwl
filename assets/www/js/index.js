@@ -116,10 +116,23 @@ function loadColumns() {
 	for (i = 0; i < feedList.length; i++) {
 		displayColumnEntries(feedList[i]['name'], feedList[i]['url'], feedList[i]['image']);
 	}
+	window.setTimeout('cleanupOldColumnEntries()', MILLISECONDS_WAIT + 1500);
 }
 
 function loadAboutColumnNames() {
 	$('#aboutList').append('<li><strong>Columns:</strong> ' + buildColumnNames() + '</li>');
+}
+
+function cleanupOldColumnEntries() {
+	var maxEntries = feedList.length * NUM_ENTRIES_PER_COLUMN;
+	//console.log('maxEntries: ', maxEntries);
+	$("#adviceList li").each(function( index ) {
+		  //console.log(index, ": ", $(this).text());
+		  if (index > maxEntries) {
+			  //console.log('removing ', index);
+			  $(this).remove();
+		  }
+	});	
 }
 
 function displayColumnEntries(name, url, image) {
