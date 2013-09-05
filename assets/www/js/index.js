@@ -118,6 +118,10 @@ function loadColumns() {
 	}
 }
 
+function loadAboutColumnNames() {
+	$('#aboutList').append('<li><strong>Columns:</strong> ' + buildColumnNames() + '</li>');
+}
+
 function displayColumnEntries(name, url, image) {
 	$.jGFeed(url, function(feeds) {
 	    // Check for errors
@@ -166,6 +170,17 @@ function buildEntryString(name, entry, image) {
 	  + fixContent(entry.content) + '</div>'
 	  + '<div class="readLink"><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">Read</a></div>' 
 	  + '</li>';
+}
+
+function buildColumnNames() {
+	var html = '';
+	for (i = 0; i < feedList.length; i++) {
+		html += feedList[i].name;
+		if (i < feedList.length - 1) {
+			html += ', ';
+		} 
+	}
+	return html;
 }
 
 function fixContent(content) {
