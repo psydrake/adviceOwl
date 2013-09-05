@@ -157,12 +157,8 @@ function sortElements(marker) {
 
 function buildEntryString(name, entry, image) {
 	var dateArr = entry.publishedDate.split(' ');
-	var title = entry.title;
-	// remove the "for MM/DD/YYY" from the end of creator.com titles
-	var titleMatch = title.match(/.*(\sfor\s\d\d\/\d\d\/\d\d\d\d)$/);
-	if (titleMatch) { // check if the input string matched the pattern
-	     title = title.substring(0, title.search(titleMatch[1])); // get the capturing group
-	}
+	var title = fixTitle(entry.title);
+	
 	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '" data-entry-id="' + entry.link + '">' 
 	  + '<p><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
 	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + title + '</h1>'
@@ -181,6 +177,15 @@ function buildColumnNames() {
 		} 
 	}
 	return html;
+}
+
+function fixTitle(entryTitle) {
+	// remove the "for MM/DD/YYY" from the end of creator.com titles
+	var titleMatch = entryTitle.match(/.*(\sfor\s\d\d\/\d\d\/\d\d\d\d)$/);
+	if (titleMatch) { // check if the input string matched the pattern
+	     entryTitle = entryTitle.substring(0, entryTitle.search(titleMatch[1])); // get the capturing group
+	}
+	return entryTitle;
 }
 
 function fixContent(content) {
