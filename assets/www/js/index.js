@@ -126,7 +126,7 @@ function displayColumnEntries(name, url, image) {
 	$.jGFeed(url, function(feeds) {
 	    // Check for errors
 	    if(!feeds || typeof feeds === 'undefined') {
-	    	console.log('Error!');
+	    	alert('Sorry - there has been an error receiving the advice column feeds.');
 	    	return false;
 	    }
 	
