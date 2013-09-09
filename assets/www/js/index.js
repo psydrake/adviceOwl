@@ -58,28 +58,23 @@ function menuKeyDown() {
 }
 
 function backKeyDown() {
-	console.log('in backKeyDown');
 	var exit = true;
 	if ($('#menu').is(':visible')) {
-		console.log('hide main menu');
 		$('#menu').hide();
 		exit = false;
-	}	
-	if (! $('#about').hasClass('ui-selectmenu-hidden')) {
-		console.log('close about menu');
-		$('#about').popup('close');
+	}
+	if ($('#aboutDialog').is(':visible')) {
+		window.history.back();
+		exit = false;
 	}
 	if (!exit) {
-		console.log('do not exit app');
-		return false; // back button was used to exit a popup, don't exit app
+		return false; // back button was used to exit a menu, don't exit app
 	}
 
-	console.log('about to exitApp');
 	return exitApp();
 }
 
 function exitApp() {
-	console.log('exiting app');
 	navigator.app.exitApp();
 	return true;
 }
@@ -98,9 +93,8 @@ var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life
 	            {name: 'At Work', url: 'http://www.creators.com/advice/at-work-lindsey-novak.rss', image: 'lindsey_novak.jpg'}];
 
 function displayAbout() {
-	$('html, body').animate({ scrollTop: 0 }, 'fast');
-	window.setTimeout(function () {$('#about').popup('open', {positionTo: '#top'});}, 800);
-	$('#menu').slideUp('fast');		
+	$('#menu').hide();
+	$.mobile.changePage("#aboutDialog");
 	return false;
 }
 

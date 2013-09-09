@@ -170,6 +170,10 @@ h1 {
     display: none;     
 }
 
+#headerLink {
+	color: white;
+}
+
 #menu {
     position: fixed;
     bottom: 0;
@@ -177,13 +181,6 @@ h1 {
     width: 80%;
     font-size: large;  
     display: none;     
-}
-
-#about {
-	position: fixed;
-	left: 8pt;
-	right: 8pt;
-    font-size: large;
 }
 
 #aboutList {
@@ -194,11 +191,21 @@ h1 {
 	padding: 8pt 8pt;
 }
 
+#aboutOK {
+	margin-left:auto;
+	margin-right:auto;
+	width: 80%;
+}
+
 #aboutOwlImg {
 	float: left;
 	width: 150px;
 	padding: 8pt;
 }
+
+.ui-dialog  .ui-header .ui-btn-icon-notext  { 
+	display:none;
+} 
 
 .columnistImage {
 	float: left;
