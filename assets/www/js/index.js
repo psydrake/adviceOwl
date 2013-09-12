@@ -90,7 +90,8 @@ var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life
 	            {name: 'Questionable Advice', url: 'http://www.creators.com/advice/questionable-advice.rss', image: 'jessica_leigh.jpg'},
 	            {name: 'The Advice Goddess', url: 'http://www.creators.com/advice/advice-goddess-amy-alkon.rss', image: 'amy_alkon.jpg'},
 	            {name: 'Tales From The Front', url: 'http://www.creators.com/advice/tales-from-the-front.rss', image: 'cheryl_lavin.jpg'},
-	            {name: 'At Work', url: 'http://www.creators.com/advice/at-work-lindsey-novak.rss', image: 'lindsey_novak.jpg'}];
+	            {name: 'At Work', url: 'http://www.creators.com/advice/at-work-lindsey-novak.rss', image: 'lindsey_novak.jpg'},
+	            {name: 'The Awl', url: 'http://feeds.feedburner.com/TheAwl?format=xml', image: 'the_awl.png', filter: {category: 'Advice'}}];
 
 function displayAbout() {
 	$('#menu').hide();
@@ -108,7 +109,7 @@ function refreshColumns() {
 function loadColumns() {
 	$('#loadingImage').show('slow');
 	for (i = 0; i < feedList.length; i++) {
-		displayColumnEntries(feedList[i]['name'], feedList[i]['url'], feedList[i]['image']);
+		displayColumnEntries(feedList[i]['name'], feedList[i]['url'], feedList[i]['image'], feedList[i]['filter']);
 	}
 	window.setTimeout('cleanupOldColumnEntries()', MILLISECONDS_WAIT + 1500);
 }
@@ -129,7 +130,7 @@ function cleanupOldColumnEntries() {
 	});	
 }
 
-function displayColumnEntries(name, url, image) {
+function displayColumnEntries(name, url, image, filter) {
 	$.jGFeed(url, function(feeds) {
 	    // Check for errors
 	    if(!feeds || typeof feeds === 'undefined') {
@@ -139,8 +140,10 @@ function displayColumnEntries(name, url, image) {
 	
 		for (var j=0; j<feeds.entries.length; j++) {
 	        var entry = feeds.entries[j];
-	        if ($('#adviceList li[data-entry-id="' + entry.link + '"]').length === 0) {
-	        	$('#adviceList').append(buildEntryString(name, entry, image));
+	        if (shouldIncludeEntry(entry, filter)) {
+		        if ($('#adviceList li[data-entry-id="' + entry.link + '"]').length === 0) {
+		        	$('#adviceList').append(buildEntryString(name, entry, image));
+		        }
 	        }
 		}
 
@@ -149,6 +152,27 @@ function displayColumnEntries(name, url, image) {
 	}, NUM_ENTRIES_PER_COLUMN);
 }
 
+function shouldIncludeEntry(entry, filter) {
+	if (filter === undefined) {
+		return true; // no filter - include entry by default
+	}
+
+	if (filter['category'] !== undefined) { // filtering is by category
+		if (entry.categories && entry.categories.length > 0) {
+			for (i = 0; i < entry.categories.length; i++) {
+				//console.log('checking filter', filter.category, 'vs:', entry.categories[i]);
+				if (filter.category === entry.categories[i]) {
+					//console.log('Found it - returning true');
+					return true;
+				}
+			}
+		}
+	}
+
+	// there was a filter, but we couldn't match it
+	//console.log('Did not find a category match - returning false');
+	return false;
+}
 
 function sortElements(marker) {
 	$('#adviceList li').sort(function(a, b) {
@@ -164,11 +188,11 @@ function sortElements(marker) {
 
 function buildEntryString(name, entry, image) {
 	var dateArr = entry.publishedDate.split(' ');
-	var title = fixTitle(entry.title);
+	var title = fixTitle(name, entry.title);
 	
 	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '" data-entry-id="' + entry.link + '">' 
 	  + '<p><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
-	  + '<h1>' + (entry.title.search(name) >= 0 ? '' : name + ': ') + title + '</h1>'
+	  + '<h1>' + title + '</h1>'
 	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture" title="' + name + '"/>' : '') 
 	  + fixContent(entry.content) + '</div>'
 	  + '<div class="readLink"><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">Read</a></div>' 
@@ -186,13 +210,18 @@ function buildColumnNames() {
 	return html;
 }
 
-function fixTitle(entryTitle) {
+function fixTitle(name, title) {
 	// remove the "for MM/DD/YYY" from the end of creator.com titles
-	var titleMatch = entryTitle.match(/.*(\sfor\s\d\d\/\d\d\/\d\d\d\d)$/);
+	var titleMatch = title.match(/.*(\sfor\s\d\d\/\d\d\/\d\d\d\d)$/);
 	if (titleMatch) { // check if the input string matched the pattern
-	     entryTitle = entryTitle.substring(0, entryTitle.search(titleMatch[1])); // get the capturing group
+	     title = title.substring(0, title.search(titleMatch[1])); // get the capturing group
 	}
-	return entryTitle;
+
+	if (name !== 'The Awl' && title.search(name) < 0) {
+		title = name + ': ' + title;
+	}
+	
+	return title;
 }
 
 function fixContent(content) {
