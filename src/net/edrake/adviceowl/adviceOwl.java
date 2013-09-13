@@ -19,7 +19,7 @@
 
 package net.edrake.adviceowl;
 
-import android.app.Activity;
+//import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import org.apache.cordova.*;
