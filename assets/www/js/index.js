@@ -149,7 +149,8 @@ function displayColumnEntries(name, url, image, filter) {
 
 		// sort 1 time(s), 5 seconds total wait
 		window.setTimeout('sortElements(' + 1 + ')', MILLISECONDS_WAIT);
-	}, NUM_ENTRIES_PER_COLUMN);
+	}, // if there is a filter, increase number of entries to examine, since most entries may not qualify  
+	filter === undefined ? NUM_ENTRIES_PER_COLUMN : NUM_ENTRIES_PER_COLUMN * 5);
 }
 
 function shouldIncludeEntry(entry, filter) {
@@ -160,7 +161,7 @@ function shouldIncludeEntry(entry, filter) {
 	if (filter['category'] !== undefined) { // filtering is by category
 		if (entry.categories && entry.categories.length > 0) {
 			for (i = 0; i < entry.categories.length; i++) {
-				//console.log('checking filter', filter.category, 'vs:', entry.categories[i]);
+				//console.log('for entry', entry.title, 'checking filter', filter.category, 'vs:', entry.categories[i]);
 				if (filter.category === entry.categories[i]) {
 					//console.log('Found it - returning true');
 					return true;
