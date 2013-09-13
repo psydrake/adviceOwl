@@ -133,7 +133,7 @@ function cleanupOldColumnEntries() {
 function displayColumnEntries(name, url, image, filter) {
 	$.jGFeed(url, function(feeds) {
 	    // Check for errors
-	    if(!feeds || typeof feeds === 'undefined') {
+	    if (!feeds || feeds === undefined) {
 	    	alert('Sorry - there has been an error receiving the advice column feeds.');
 	    	return false;
 	    }
