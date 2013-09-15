@@ -33,27 +33,30 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        //app.receivedEvent('deviceready');
+        app.receivedEvent('deviceready');
         document.addEventListener("menubutton", menuKeyDown, false);
         document.addEventListener("backbutton", backKeyDown, false);
-    }
+    },
 
-    /* // Update DOM on a Received Event
+    // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        //var parentElement = document.getElementById(id);
+        //var listeningElement = parentElement.querySelector('.listening');
+        //var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-        //alert('Received Event: ' + id);
-    }*/
+        //listeningElement.setAttribute('style', 'display:none;');
+        //receivedElement.setAttribute('style', 'display:block;');
+        //console.log('Received Event: ' + id);        
+    }
 };
 
-function menuKeyDown() { 
-	$('#menu').slideDown('fast');
+function menuKeyDown() {
+	if ($('#menu').is(':visible')) { // hide menu if it is showing
+		$('#menu').slideUp('fast');
+	}
+	else { // show menu 
+		$('#menu').slideDown('fast');
+	}
 	return false;
 }
 
