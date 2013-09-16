@@ -32,6 +32,7 @@
     <preference name="loglevel" value="INFO"/>
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />
+    <preference name="load-url-timeout" value="60000" />
     
     <feature name="App">
       <param name="android-package" value="org.apache.cordova.App"/>
