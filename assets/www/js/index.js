@@ -85,6 +85,7 @@ function exitApp() {
 var MILLISECONDS_WAIT = 5000;
 var NUM_ENTRIES_PER_COLUMN = 4;
 var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', image: 'prudie.jpg'},
+                {name: 'Ask Amy', url: 'http://amydickinson.com/rss', image: 'amy_dickenson.jpg', filter: {category: 'Ask Amy'}},
 	            {name: 'Carolyn Hax', url: 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax', image: 'hax.jpg'},
 	            {name: 'Savage Love', url: 'http://www.thestranger.com/gyrobase/Rss.xml?category=258', image: 'savage.jpg'},
 	            {name: "Annie's Mailbox", url: 'http://www.creators.com/advice/annies-mailbox.rss', image: 'annies.jpg'},
