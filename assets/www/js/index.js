@@ -83,7 +83,7 @@ function exitApp() {
 }
 
 var MILLISECONDS_WAIT = 5000;
-var NUM_ENTRIES_PER_COLUMN = 4;
+var NUM_ENTRIES_PER_COLUMN = 3;
 var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', image: 'prudie.jpg'},
                 {name: 'Ask Amy', url: 'http://amydickinson.com/rss', image: 'amy_dickenson.jpg', filter: {category: 'Ask Amy'}},
 	            {name: 'Carolyn Hax', url: 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax', image: 'hax.jpg'},
@@ -142,11 +142,13 @@ function displayColumnEntries(name, url, image, filter) {
 	    	return false;
 	    }
 	
-		for (var j=0; j<feeds.entries.length; j++) {
+	    var numEntries = 0; // because of filters, we need to keep track of how many entries actually included
+		for (var j=0; j < feeds.entries.length && numEntries < NUM_ENTRIES_PER_COLUMN; j++) {
 	        var entry = feeds.entries[j];
 	        if (shouldIncludeEntry(entry, filter)) {
 		        if ($('#adviceList li[data-entry-id="' + entry.link + '"]').length === 0) {
 		        	$('#adviceList').append(buildEntryString(name, entry, image));
+		        	numEntries++;
 		        }
 	        }
 		}
@@ -154,7 +156,7 @@ function displayColumnEntries(name, url, image, filter) {
 		// sort 1 time(s), 5 seconds total wait
 		window.setTimeout('sortElements(' + 1 + ')', MILLISECONDS_WAIT);
 	}, // if there is a filter, increase number of entries to examine, since most entries may not qualify  
-	filter === undefined ? NUM_ENTRIES_PER_COLUMN : NUM_ENTRIES_PER_COLUMN * 5);
+	filter === undefined ? NUM_ENTRIES_PER_COLUMN : NUM_ENTRIES_PER_COLUMN * 10);
 }
 
 function shouldIncludeEntry(entry, filter) {
