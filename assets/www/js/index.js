@@ -232,11 +232,18 @@ function fixTitle(name, title) {
 }
 
 function fixContent(content) {
-	// replace "a href" links with in app browser links 
-	var regex = new RegExp("(<a.*?href\s*=\s*)\"(.*?)\"(.*?>)", 'g');
-	if (content.match(regex)) {
-	    content = content.replace(regex, "$1" + '"javascript:void(0);" onclick="openLink(\'' + "$2" + '\');"' + "$3");
+	// remove iframe content (in Ask Amy it has messed up formatting on a small width device, while adding little value)
+	var iframeRegex = new RegExp("<\s*iframe.*?\/\s*iframe\s*>", 'g');
+	if (content.match(iframeRegex)) {
+	    content = content.replace(iframeRegex, '');
 	}
+
+	// replace "a href" links with in app browser links 
+	var linkRegex = new RegExp("(<a.*?href\s*=\s*)\"(.*?)\"(.*?>)", 'g');
+	if (content.match(linkRegex)) {
+	    content = content.replace(linkRegex, "$1" + '"javascript:void(0);" onclick="openLink(\'' + "$2" + '\');"' + "$3");
+	}
+	
 	return content;
 }
 
