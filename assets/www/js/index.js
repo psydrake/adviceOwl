@@ -104,18 +104,22 @@ function displayAbout() {
 	return false;
 }
 
+function scrollToTop() {
+	$('html, body').animate({ scrollTop: 0 }, 'fast');
+	return false;
+}
+
 function refreshColumns() {
 	$('#menu').hide();
 	loadColumns(true);
-	$('html, body').animate({ scrollTop: 0 }, 'fast');
-	return false;
+	return scrollToTop();
 }
 
 function loadColumns(forceRefresh) {	 
 	$('#ajax-loader').show('slow');
 
 	var adviceContent;
-	if (store) {
+	if (store) { // Get and use any cached content. Set forceRefresh to true if enough time has passed
 		adviceContent = store.get('adviceContent');
 		//console.log('content from cache: ' + adviceContent);
 		if (adviceContent) {		
@@ -133,9 +137,6 @@ function loadColumns(forceRefresh) {
 			//console.log('setting forceRefresh to true');
 			forceRefresh = true;
 		}
-		//else {
-		//	console.log('not yet time to refresh cache');
-		//}
 	}
 
 	//console.log('forceRefresh? ' + forceRefresh + ', adviceContent? ' + (adviceContent ? true : false));
@@ -239,7 +240,10 @@ function buildEntryString(name, entry, image) {
 	  + '<h1>' + title + '</h1>'
 	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture" title="' + name + '"/>' : '') 
 	  + fixContent(entry.content) + '</div>'
-	  + '<div class="readLink"><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">Read</a></div>' 
+	  + '<div class="entryFooter">'
+	  + '<div class="toTop"><a href="javascript:void(0)" onclick="return scrollToTop();">^ Top</a></div>'
+	  + '<div class="readLink"><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">Read</a></div>'
+	  + '</div>'
 	  + '</li>';
 }
 

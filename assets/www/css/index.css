@@ -141,8 +141,17 @@ h1 {
 	min-height: 190px;	
 }
 
+.entryFooter {
+	width: 100%;
+	padding-bottom: 12pt;
+}
+
+.toTop {
+	float: left;
+}
+
 .readLink {
-	text-align: right;
+	float: right;
 }
 
 #adviceList li {
