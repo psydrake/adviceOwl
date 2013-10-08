@@ -161,7 +161,7 @@ h1 {
 	background-color: white;
 }
 
-#loadingImage {
+#ajax-loader {	
     position: fixed;
     left: 50%;
     top: 120pt;

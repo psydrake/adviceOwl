@@ -31,11 +31,8 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.min.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />        
         <style>
-        	/*body { background-color: #6CBCD5; } 4671D5 1240AB 2A44B0 06266F*/
         	.center-wrapper { text-align: center; padding: 8px; }
 			.center-wrapper * { margin: 0 auto; }
-        	#loading { display: none; margin-top: 100px; margin-bottom: 50px; }
-			/*#deviceready { padding-top: 15px; }*/
 		</style>
     </head>
     <body>
@@ -47,8 +44,8 @@
 				<div>
 					<div id="top"></div>
 					<div id="ajax-loader">
-						<img id="loadingImage" src="img/loading.gif" alt="Please Wait..."/>
-					</div>
+						<img src="css/images/ajax-loader.gif" alt="Please Wait..."/>						
+					</div>					
 					<div id="menu">
 						<ul data-role="listview" data-theme="a">
 					        <li data-icon="false"><a href="javascript:void(0)" onclick="javascript:return refreshColumns();">Refresh</a></li>
@@ -65,7 +62,7 @@
 		</div>
         <script type="text/javascript">
         	$(function() {
-        		$('#loadingImage').show();        		
+        		$('#ajax-loader').show();        		        		
             	app.initialize();
             	loadColumns();
             	loadAboutColumnNames();

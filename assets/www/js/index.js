@@ -111,7 +111,7 @@ function refreshColumns() {
 }
 
 function loadColumns() {
-	$('#loadingImage').show('slow');
+	$('#ajax-loader').show('slow');
 	for (i = 0; i < feedList.length; i++) {
 		displayColumnEntries(feedList[i]['name'], feedList[i]['url'], feedList[i]['image'], feedList[i]['filter']);
 	}
@@ -187,7 +187,7 @@ function sortElements(marker) {
 	}).appendTo('#adviceList');
 
 	if (--marker < 1) {
-		$('#loadingImage').fadeOut('slow');
+		$('#ajax-loader').fadeOut('slow');
 		return;
 	}
 	window.setTimeout('sortElements(' + marker + ')', MILLISECONDS_WAIT);
