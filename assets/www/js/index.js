@@ -82,7 +82,8 @@ function exitApp() {
 	return true;
 }
 
-var MILLISECONDS_WAIT = 5000;
+var MILLISECONDS_WAIT = 6000; // base amount of time to wait between the start of feed displaying and the sort operation
+var MILLISECONDS_BETWEEN_REFRESH = 1000 * 60 * 60; // do a content refresh if it's been 1 hour since the last cache update
 var NUM_ENTRIES_PER_COLUMN = 3;
 var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', image: 'prudie.jpg'},
                 {name: 'Ask Amy', url: 'http://amydickinson.com/rss', image: 'amy_dickenson.jpg', filter: {category: 'Ask Amy'}},
@@ -105,33 +106,83 @@ function displayAbout() {
 
 function refreshColumns() {
 	$('#menu').hide();
-	loadColumns();
+	loadColumns(true);
 	$('html, body').animate({ scrollTop: 0 }, 'fast');
 	return false;
 }
 
-function loadColumns() {
+function loadColumns(forceRefresh) {	 
 	$('#ajax-loader').show('slow');
-	for (i = 0; i < feedList.length; i++) {
-		displayColumnEntries(feedList[i]['name'], feedList[i]['url'], feedList[i]['image'], feedList[i]['filter']);
+
+	var adviceContent;
+	if (store) {
+		adviceContent = store.get('adviceContent');
+		//console.log('content from cache: ' + adviceContent);
+		if (adviceContent) {		
+			$("#adviceContent").html(adviceContent);
+			//console.log('read adviceContent from cache');			
+		}
+		var now = new Date().getTime();
+		var lastUpdated = store.get('lastUpdated');
+		if (!lastUpdated) {
+			lastUpdated = 0;
+		}
+		lastUpdated = new Number(lastUpdated); // force lastUpdated to be a number
+		//console.log('seconds until refresh: ' + ((lastUpdated + MILLISECONDS_BETWEEN_REFRESH) - now) / 1000);
+		if (now > lastUpdated + MILLISECONDS_BETWEEN_REFRESH) {
+			//console.log('setting forceRefresh to true');
+			forceRefresh = true;
+		}
+		//else {
+		//	console.log('not yet time to refresh cache');
+		//}
 	}
-	window.setTimeout('cleanupOldColumnEntries()', MILLISECONDS_WAIT + 1500);
+
+	//console.log('forceRefresh? ' + forceRefresh + ', adviceContent? ' + (adviceContent ? true : false));
+	if (forceRefresh || !adviceContent) {
+		for (i = 0; i < feedList.length; i++) {
+			displayColumnEntries(feedList[i]['name'], feedList[i]['url'], feedList[i]['image'], feedList[i]['filter']);
+		}
+		window.setTimeout('sortElements()', MILLISECONDS_WAIT);
+		window.setTimeout('cleanupOldColumnEntries()', MILLISECONDS_WAIT + 1500);
+		window.setTimeout('saveColumnEntriesToCache()', MILLISECONDS_WAIT + 3500);
+	}
+	else {
+		$('#ajax-loader').fadeOut('slow');
+	}
 }
 
-function loadAboutColumnNames() {
-	$('#aboutList').append('<li><strong>Columns:</strong> ' + buildColumnNames() + '</li>');
+function sortElements() {
+	$('#adviceList li').sort(function(a, b) {
+	    return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
+	}).appendTo('#adviceList');
+
+	$('#ajax-loader').fadeOut('slow');
 }
 
 function cleanupOldColumnEntries() {
 	var maxEntries = feedList.length * NUM_ENTRIES_PER_COLUMN;
-	//console.log('maxEntries: ', maxEntries);
 	$("#adviceList li").each(function( index ) {
-		  //console.log(index, ": ", $(this).text());
 		  if (index > maxEntries) {
-			  //console.log('removing ', index);
+			  //console.log('in cleanupOldColumnEntries() - max of ' + maxEntries + ' reached. Deleting entry ' + index)
 			  $(this).remove();
 		  }
-	});	
+	});
+}
+
+function saveColumnEntriesToCache() {
+	if (store) {
+		var adviceContent = $("#adviceContent").html();
+		if (adviceContent) {
+			store.set('adviceContent', adviceContent);
+			store.set('lastUpdated', new Date().getTime())
+			//console.log('set adviceContent to cache');
+		}
+	}
+}
+
+function loadAboutColumnNames() {
+	$('#aboutList').append('<li><strong>Columns:</strong> ' + buildColumnNames() + '</li>');
 }
 
 function displayColumnEntries(name, url, image, filter) {
@@ -147,14 +198,12 @@ function displayColumnEntries(name, url, image, filter) {
 	        var entry = feeds.entries[j];
 	        if (shouldIncludeEntry(entry, filter)) {
 		        if ($('#adviceList li[data-entry-id="' + entry.link + '"]').length === 0) {
-		        	$('#adviceList').append(buildEntryString(name, entry, image));
-		        	numEntries++;
+		        	$('#adviceList').append(buildEntryString(name, entry, image));		        	
 		        }
+	        	numEntries++; // count the entry if it should be included, even if we didn't append to the display
+	        	//console.log('numEntries for ' + name + ': ' + numEntries);
 	        }
 		}
-
-		// sort 1 time(s), 5 seconds total wait
-		window.setTimeout('sortElements(' + 1 + ')', MILLISECONDS_WAIT);
 	}, // if there is a filter, increase number of entries to examine, since most entries may not qualify  
 	filter === undefined ? NUM_ENTRIES_PER_COLUMN : NUM_ENTRIES_PER_COLUMN * 10);
 }
@@ -179,18 +228,6 @@ function shouldIncludeEntry(entry, filter) {
 	// there was a filter, but we couldn't match it
 	//console.log('Did not find a category match - returning false');
 	return false;
-}
-
-function sortElements(marker) {
-	$('#adviceList li').sort(function(a, b) {
-	    return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
-	}).appendTo('#adviceList');
-
-	if (--marker < 1) {
-		$('#ajax-loader').fadeOut('slow');
-		return;
-	}
-	window.setTimeout('sortElements(' + marker + ')', MILLISECONDS_WAIT);
 }
 
 function buildEntryString(name, entry, image) {

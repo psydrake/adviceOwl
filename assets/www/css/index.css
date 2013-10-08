@@ -132,6 +132,10 @@ h1 {
 	padding-left: 8pt;
 }
 
+#adviceList li img {
+	max-width: 200px;
+}
+
 .adviceEntry {
 	padding-top: 6pt;
 	min-height: 190px;	
