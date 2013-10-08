@@ -12,7 +12,7 @@ Thanks to all the Open Source developers who contributed to the libraries that m
 [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
 
 ## Author
-Drake Emko
+[Drake Emko](https://github.com/psydrake)
 * drakee@gmail.com
 * [@DrakeEmko](https://twitter.com/DrakeEmko)
 * [Wolfgirl Band](http://wolfgirl.bandcamp.com/)
