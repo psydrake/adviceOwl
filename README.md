@@ -13,7 +13,8 @@ Thanks to all the Open Source developers who contributed to the libraries that m
 
 ## Author
 Drake Emko
-drakee@gmail.com
-@DrakeEmko
-http://wolfgirl.bandcamp.com/
-
+* drakee@gmail.com
+* @DrakeEmko
+* [Wolfgirl Band](http://wolfgirl.bandcamp.com/)
+* [Hackles Comic](http://hackles.org/)
+* [The Remonstrance Comic](http://theremonstrance.com/)
