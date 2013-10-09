@@ -68,7 +68,7 @@
         		store = new Persist.Store('Advice Owl');
             	app.initialize();
             	loadColumns();
-            	loadAboutColumnNames();
+            	loadAbout();
         	});
         </script>
         					
@@ -80,11 +80,13 @@
 			   <img id="aboutOwlImg" src="img/advice_owl.png" alt="Advice Owl" />
 			   <ul id="aboutList">
 			      <li>Get your advice column fix, <em>owl</em> in one place.</li>
-			      <li>Version 1.1</li>
+			      <li>Version <span id="versionName"></span>.<span id="versionCode"></span></li>
 			      <li>by Drake Emko</li>
 			      <li>Your feedback is welcome. Email: <a href="javascript:void(0)" onclick="openLink('mailto:drakee@gmail.com');" target="_blank">drakee@gmail.com</a></li>
 			   </ul>
-			   <a id="aboutOK" href="javascript:void(0)" data-rel="back" data-role="button" class="ui-btn-right">&nbsp;OK&nbsp;</a>
+			   <div id="aboutOkContainer">
+			   	  <a id="aboutOK" href="javascript:void(0)" data-rel="back" data-role="button" class="ui-btn-right">&nbsp;OK&nbsp;</a>
+			   </div>
 		   </div>
 		</div>
         

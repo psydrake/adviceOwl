@@ -182,8 +182,11 @@ function saveColumnEntriesToCache() {
 	}
 }
 
-function loadAboutColumnNames() {
+function loadAbout() {
 	$('#aboutList').append('<li><strong>Columns:</strong> ' + buildColumnNames() + '</li>');
+	
+	$('#versionName').text(window.AdviceOwl.getVersionName());
+	$('#versionCode').text(window.AdviceOwl.getVersionCode());
 }
 
 function displayColumnEntries(name, url, image, filter) {

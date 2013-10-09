@@ -20,23 +20,49 @@
 package net.edrake.adviceowl;
 
 //import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import org.apache.cordova.*;
 
-public class adviceOwl extends DroidGap
-{
+public class AdviceOwl extends DroidGap {
+	
+	//private VersionReader versionReader;
+    private String versionName = "0";
+    private int versionCode = 0;
+	
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.loadUrl("file:///android_asset/www/index.html");
-        
+                        
         // Display vertical scrollbar and hide horizontal scrollBar
         super.appView.setVerticalScrollBarEnabled(true);
         super.appView.setHorizontalScrollBarEnabled(false);
+        
         // set scrollbar style
         super.appView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        
+        // make versionName and versionCode accessible in front end
+        super.appView.addJavascriptInterface(this, "AdviceOwl");
+        
+        Context context = getApplicationContext();
+        try {
+        	versionName = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+        	versionCode = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;        	
+        }
+        catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
     }
+    
+	public String getVersionName() {
+		return versionName;
+	}
+	
+	public int getVersionCode() {
+		return versionCode;
+	}
 }
 
