@@ -82,6 +82,7 @@ function exitApp() {
 	return true;
 }
 
+var DEFAULT_VERSION_NAME = '1.1';
 var MILLISECONDS_WAIT = 6000; // base amount of time to wait between the start of feed displaying and the sort operation
 var MILLISECONDS_BETWEEN_REFRESH = 1000 * 60 * 60; // do a content refresh if it's been 1 hour since the last cache update
 var NUM_ENTRIES_PER_COLUMN = 3;
@@ -185,8 +186,18 @@ function saveColumnEntriesToCache() {
 function loadAbout() {
 	$('#aboutList').append('<li><strong>Columns:</strong> ' + buildColumnNames() + '</li>');
 	
-	$('#versionName').text(window.AdviceOwl.getVersionName());
-	$('#versionCode').text(window.AdviceOwl.getVersionCode());
+	var versionName = DEFAULT_VERSION_NAME;
+	if (window.AdviceOwl.getVersionName) {
+		versionName = window.AdviceOwl.getVersionName();
+	}
+	$('#versionName').text(versionName);
+	
+	var versionCode = '';
+	if (window.AdviceOwl.getVersionCode) {
+		$('#versionSeparator').text('.');
+		versionCode = window.AdviceOwl.getVersionCode();
+	}
+	$('#versionCode').text(versionCode);
 }
 
 function displayColumnEntries(name, url, image, filter) {
