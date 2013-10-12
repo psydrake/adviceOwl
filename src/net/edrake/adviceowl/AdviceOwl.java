@@ -16,27 +16,29 @@
        specific language governing permissions and limitations
        under the License.
  */
-
 package net.edrake.adviceowl;
 
-//import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import org.apache.cordova.*;
+import com.google.ads.*;
+import android.widget.LinearLayout;
 
 public class AdviceOwl extends DroidGap {
 	
-	//private VersionReader versionReader;
     private String versionName = "0";
     private int versionCode = 0;
+    
+    private static final String ADMOB_AD_UNIT = "ca-app-pub-8928397865273246/9320737011";
+    private AdView adView;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.loadUrl("file:///android_asset/www/index.html");
-                        
+        
         // Display vertical scrollbar and hide horizontal scrollBar
         super.appView.setVerticalScrollBarEnabled(true);
         super.appView.setHorizontalScrollBarEnabled(false);
@@ -55,6 +57,14 @@ public class AdviceOwl extends DroidGap {
         catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+        
+        // Google AdMob
+        adView = new AdView(this, AdSize.BANNER, ADMOB_AD_UNIT); 
+        LinearLayout layout = super.root;
+        layout.addView(adView); 
+        AdRequest request = new AdRequest();
+        //request.setTesting(true);
+        adView.loadAd(request);
     }
     
 	public String getVersionName() {
@@ -65,4 +75,3 @@ public class AdviceOwl extends DroidGap {
 		return versionCode;
 	}
 }
-

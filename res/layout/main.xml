@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
-	xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <com.google.ads.AdView
-    	android:id="@+id/ad"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    ads:adUnitId="ca-app-pub-8928397865273246/9320737011"
-	    ads:adSize="BANNER"
-	    ads:loadAdOnCreate="true" 
-	    android:layout_gravity="center"
-	    android:layout_margin="10dp">
-    </com.google.ads.AdView>
    	<TextView
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
