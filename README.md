@@ -9,8 +9,8 @@ Advice Owl is built for mobile devices using the Apache Cordova (a.k.a. PhoneGap
 Thanks to all the Open Source developers who contributed to the libraries that made this project possible!
 
 ## Install On Your Phone / Tablet
-[Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
-[Advice Owl for Kindle](http://www.amazon.com/Drake-Emko-Advice-Owl/dp/B00FTPNLES/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1381829714&sr=1-1)
+* [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
+* [Advice Owl for Kindle](http://www.amazon.com/Drake-Emko-Advice-Owl/dp/B00FTPNLES/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1381829714&sr=1-1)
 
 ## Author
 [Drake Emko](https://github.com/psydrake)
