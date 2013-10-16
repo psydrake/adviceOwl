@@ -110,13 +110,18 @@ function scrollToTop() {
 	return false;
 }
 
+function onclickRefreshButton() {
+	$('#refreshImage').attr('src', 'img/refreshing.png');
+	return refreshColumns();
+}
+
 function refreshColumns() {
 	$('#menu').hide();
 	loadColumns(true);
 	return scrollToTop();
 }
 
-function loadColumns(forceRefresh) {	 
+function loadColumns(forceRefresh) {
 	$('#ajax-loader').show('slow');
 
 	var adviceContent;
@@ -150,6 +155,7 @@ function loadColumns(forceRefresh) {
 		window.setTimeout('saveColumnEntriesToCache()', MILLISECONDS_WAIT + 3500);
 	}
 	else {
+		$('#refreshImage').attr('src', 'img/refresh.png');
 		$('#ajax-loader').fadeOut('slow');
 	}
 }
@@ -159,6 +165,7 @@ function sortElements() {
 	    return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
 	}).appendTo('#adviceList');
 
+	$('#refreshImage').attr('src', 'img/refresh.png');
 	$('#ajax-loader').fadeOut('slow');
 }
 

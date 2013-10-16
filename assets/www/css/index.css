@@ -75,12 +75,22 @@ a {
 }
 
 h1 {
+	float: center;
     font-size: x-large;
     font-weight: 700;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+    margin: 0px;
+    overflow: visible;
+    padding: 0px;
+    text-align: center;
+}
+
+#refreshButton {
+	float:right;
+}
+
+#refreshImage {
+	height:22px;
+	padding:8px;
 }
 
 .event {
