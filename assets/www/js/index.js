@@ -194,13 +194,13 @@ function loadAbout() {
 	$('#aboutList').append('<li><strong>Columns:</strong> ' + buildColumnNames() + '</li>');
 	
 	var versionName = DEFAULT_VERSION_NAME;
-	if (window.AdviceOwl.getVersionName) {
+	if (window.AdviceOwl && window.AdviceOwl.getVersionName) {
 		versionName = window.AdviceOwl.getVersionName();
 	}
 	$('#versionName').text(versionName);
 	
 	var versionCode = '';
-	if (window.AdviceOwl.getVersionCode) {
+	if (window.AdviceOwl && window.AdviceOwl.getVersionCode) {
 		$('#versionSeparator').text('.');
 		versionCode = window.AdviceOwl.getVersionCode();
 	}
