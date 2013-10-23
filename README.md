@@ -12,6 +12,9 @@ Thanks to all the Open Source developers who contributed to the libraries that m
 * [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
 * [Advice Owl for Kindle](http://www.amazon.com/Drake-Emko-Advice-Owl/dp/B00FTPNLES/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1381829714&sr=1-1)
 
+## Web App
+* [Advice Owl in the Chrome Web Store](https://chrome.google.com/webstore/detail/advice-owl/pijbdbmaecnapkoefghdfiakpiiogeao)
+
 ## Author
 Drake Emko - drakee@gmail.com
 * [@DrakeEmko](https://twitter.com/DrakeEmko)
