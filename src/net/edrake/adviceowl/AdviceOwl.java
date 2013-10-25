@@ -21,10 +21,12 @@ package net.edrake.adviceowl;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.view.View;
+
 import org.apache.cordova.*;
 import com.google.ads.*;
-import android.widget.LinearLayout;
+import com.google.analytics.tracking.android.EasyTracker;
 
 public class AdviceOwl extends DroidGap {
 	
@@ -65,6 +67,18 @@ public class AdviceOwl extends DroidGap {
         AdRequest request = new AdRequest();
         //request.setTesting(true);
         adView.loadAd(request);
+    }
+    
+    @Override
+    public void onStart() {
+      super.onStart();      
+      EasyTracker.getInstance(this).activityStart(this); // Google analytics
+    }
+
+    @Override
+    public void onStop() {
+      super.onStop();      
+      EasyTracker.getInstance(this).activityStop(this); // Google analytics      
     }
     
 	public String getVersionName() {
