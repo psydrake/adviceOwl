@@ -111,7 +111,7 @@ function scrollToTop() {
 }
 
 function onclickRefreshButton() {
-	$('#refreshImage').attr('src', 'img/refreshing.png');
+	$('#refreshImage').attr('src', 'css/images/ajax-loader.gif');
 	return refreshColumns();
 }
 
