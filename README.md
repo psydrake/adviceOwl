@@ -17,7 +17,7 @@ Thanks to all the Open Source developers who contributed to the libraries that m
 * [Advice Owl as a Web Site](http://d2whqoo26gzkh3.cloudfront.net/adviceOwl/)
 
 ## Author
-Drake Emko - drakee@gmail.com
+Drake Emko - drakee (a) gmail.com
 * [@DrakeEmko](https://twitter.com/DrakeEmko)
 * [Wolfgirl Band](http://wolfgirl.bandcamp.com/)
 * [Hackles Comic](http://hackles.org/)
