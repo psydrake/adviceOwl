@@ -1,3 +1,5 @@
 .classpath
-gen/*
-bin/*
+.project
+**/gen/*
+**/bin/*
+platforms/android/assets/www
