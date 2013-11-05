@@ -35,6 +35,12 @@
         	.center-wrapper { text-align: center; padding: 8px; }
 			.center-wrapper * { margin: 0 auto; }
 		</style>
+	<script type="text/javascript">
+	// workaround for overlayed status bar in iOS 7
+	if (navigator && navigator.userAgent && navigator.userAgent.match(/iPhone OS 7/)) {
+	  document.write('<style type="text/css">body{-webkit-transform: translate3d(0,20px,0)}</style>');
+	}
+	</script>
     </head>
     <body>
 	    <div data-role="page">

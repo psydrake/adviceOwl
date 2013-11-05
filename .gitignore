@@ -3,3 +3,6 @@
 **/gen/*
 **/bin/*
 platforms/android/assets/www
+platforms/ios/www
+platforms/ios/Advice Owl.xcodeproj/xcuserdata
+console.log

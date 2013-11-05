@@ -4,7 +4,4 @@
    <FileRef
       location = "self:Advice Owl.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:../../../www/index.html">
-   </FileRef>
 </Workspace>
