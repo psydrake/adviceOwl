@@ -304,7 +304,6 @@ function fixContent(content) {
 	// replace "a href" links with in app browser links 
 	var linkRegex = new RegExp("(<a.*?href\s*=\s*)\"(.*?)\"(.*?>)", 'g');
 	if (content.match(linkRegex)) {
-	    //content = content.replace(linkRegex, "$1" + '"javascript:void(0);" onclick="return openLink(\'' + "$2" + '\');"' + "$3");
 	    content = content.replace(linkRegex, "$1" + '"javascript:void(0);" onclick="openLink(\'' + "$2" + '\');"' + "$3");
 	}
 	
@@ -316,9 +315,8 @@ function openLink(link) {
 	//window.plugins.childBrowser.showWebPage(link, { showLocationBar: true });
 	//var ref = window.open(encodeURI(link), '_blank', 'location=yes,toolbar=yes'); 
 
-
 	$('#externalContentIFrame').attr('src', encodeURI(link));	
-	//$('#externalContent').show('fast');
+	//$('#externalContentIFrame').attr('src', encodeURI('http://www.wikipedia.org/'));	
 	$.mobile.changePage("#externalContentDialog");
 
 	//var ref = window.open(encodeURI('external.html'), '_system', 'location=yes', 'closebuttoncaption=Return'); 
@@ -337,7 +335,7 @@ function openLink(link) {
 	//ref.addEventListener('loadstart', function() { alert(event.url); }); 
 }
 
-function closeLink() {
+function closeDoneDialog() {
+	$('#externalContentDialog').dialog('close');
 	history.go(-1);
-	$('#externalContentIFrame').hide('fast');
 }

@@ -104,14 +104,15 @@
 		   </div>
 		</div>
 
-		<div id="externalContentDialog" data-role="page">
-			<div data-role="content">
-				<iframe id="externalContentIFrame"></iframe>
-				<div id="externalContentDoneContainer">
-					<a id="externalContentDone" href="javascript:void(0)" data-rel="back" data-role="button" class="ui-btn-right">&nbsp;Done&nbsp;</a>
-					<!--<a id="externalContentDone" href="javascript:$('#externalContentDialog').dialog('close');" data-role="button" class="ui-btn-right">&nbsp;Done&nbsp;</a>-->
+		<div id="externalContentDialog" data-role="dialog">
+			<div id="externalContentDoneContainer" data-role="header" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="javascript:void(0)" onclick="closeDoneDialog()">Back</a></li>
+					</ul>
 				</div>
 			</div>
+			<iframe id="externalContentIFrame" frameborder="0"></iframe>
 		</div>
 
     </body>
