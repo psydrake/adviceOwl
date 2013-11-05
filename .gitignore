@@ -5,4 +5,5 @@
 platforms/android/assets/www
 platforms/ios/www
 platforms/ios/Advice\ Owl.xcodeproj/xcuserdata
+platforms/ios/Advice\ Owl.xcodeproj/project.xcworkspace
 console.log
