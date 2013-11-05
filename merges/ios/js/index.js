@@ -304,6 +304,7 @@ function fixContent(content) {
 	// replace "a href" links with in app browser links 
 	var linkRegex = new RegExp("(<a.*?href\s*=\s*)\"(.*?)\"(.*?>)", 'g');
 	if (content.match(linkRegex)) {
+	    //content = content.replace(linkRegex, "$1" + '"javascript:void(0);" onclick="return openLink(\'' + "$2" + '\');"' + "$3");
 	    content = content.replace(linkRegex, "$1" + '"javascript:void(0);" onclick="openLink(\'' + "$2" + '\');"' + "$3");
 	}
 	
@@ -313,6 +314,30 @@ function fixContent(content) {
 function openLink(link) {
 	//navigator.app.loadUrl(link, { openExternal: true });
 	//window.plugins.childBrowser.showWebPage(link, { showLocationBar: true });
-	var ref = window.open(encodeURI(link), '_blank', 'location=yes,toolbar=yes'); 
+	//var ref = window.open(encodeURI(link), '_blank', 'location=yes,toolbar=yes'); 
+
+
+	$('#externalContentIFrame').attr('src', encodeURI(link));	
+	//$('#externalContent').show('fast');
+	$.mobile.changePage("#externalContentDialog");
+
+	//var ref = window.open(encodeURI('external.html'), '_system', 'location=yes', 'closebuttoncaption=Return'); 
+	//var ref = window.open(encodeURI('external.html'), '_blank', 'location=yes', 'closebuttoncaption=Return'); 
+	//if (window.focus) { ref.focus(); }
+	/*window.setTimeout(function() {
+			ref.close();
+		}, 2000);
+	return false;*/
+	/*
+     ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
+     ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+     ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+     ref.addEventListener('exit', function(event) { alert(event.type); });
+	*/
 	//ref.addEventListener('loadstart', function() { alert(event.url); }); 
+}
+
+function closeLink() {
+	history.go(-1);
+	$('#externalContentIFrame').hide('fast');
 }
