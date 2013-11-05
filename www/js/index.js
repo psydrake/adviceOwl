@@ -309,8 +309,3 @@ function fixContent(content) {
 	
 	return content;
 }
-
-function openLink(link) {
-	navigator.app.loadUrl(link, { openExternal: true });
-	//window.plugins.childBrowser.showWebPage(link, { showLocationBar: true });
-}
