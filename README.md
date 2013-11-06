@@ -1,12 +1,19 @@
 # Advice Owl
 
 ## About
-Advice Owl is an advice column aggregator for mobile devices (currently Android based phones and tablets, including the Kindle Fire). 
+Advice Owl is an advice column aggregator for mobile devices.
 
 ## Technical
 Advice Owl is built for mobile devices using the Apache Cordova (a.k.a. PhoneGap) framework. It reads the RSS feeds of popular advice columns, using jGFeed - an abstraction layer on top of Google Feeds API - to process all the data in JSON on the client side. It uses jQuery and jQuery Mobile, to help make coding with JavaScript a pleasure.
 
 Thanks to all the Open Source developers who contributed to the libraries that made this project possible!
+
+## Project Structure
+This project is organized to make use of the Cordova command line tools (version 3.1).
+www			- common web assets
+platforms/ios		- iOS specific files
+platforms/android	- Android specific files
+chrome			- I put the files for the chrome hosted app here, including the manifest and icons in chrome/app
 
 ## Install On Your Phone / Tablet
 * [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
