@@ -7,3 +7,55 @@ function openLink(link) {
 		window.open(encodeURI(link), '_blank', 'location=yes'); 
 	}
 }
+
+function doCustomActions() {
+	createBannerView();
+}
+
+function createBannerView() {
+	var am = window.plugins.AdMob;
+    am.createBannerView( 
+		{
+			'publisherId': 'ca-app-pub-8928397865273246/5218817813',
+			'adSize': am.AD_SIZE.BANNER,
+			'bannerAtTop': false
+		}, function() {
+			requestAd();
+		}, function(){
+			// fail quietly
+		});
+}
+
+function requestAd() {
+	window.plugins.AdMob.requestAd(
+	     {
+			'isTesting': false,
+			'extras': {
+				'color_bg': 'FFFFFF',
+				'color_bg_top': 'FFFFFF',
+				'color_border': 'FFFFFF',
+				'color_link': '000080',
+				'color_text': '808080',
+				'color_url': '008000'
+			},
+	     },
+		function() {
+			showAd();
+		},
+   		function () { 
+			// fail quietly
+		}
+	 );
+}
+
+function showAd() {
+	window.plugins.AdMob.showAd( 
+		true, // or false
+		function() {
+			// yay
+		},
+	    function() {
+			// fail quietly
+		}
+	 );
+}

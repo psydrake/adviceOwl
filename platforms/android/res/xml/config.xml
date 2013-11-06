@@ -28,4 +28,7 @@
         Drake Emko
     </author>
     <content src="index.html" />
+    <feature name="AdMob">
+        <param name="android-package" value="com.rjfun.cordova.plugin.AdMob" />
+    </feature>
 </widget>
