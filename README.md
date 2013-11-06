@@ -10,10 +10,12 @@ Thanks to all the Open Source developers who contributed to the libraries that m
 
 ## Project Structure
 This project is organized to make use of the Cordova command line tools (version 3.1).
-www			- common web assets
-platforms/ios		- iOS specific files
-platforms/android	- Android specific files
-chrome			- I put the files for the chrome hosted app here, including the manifest and icons in chrome/app
+* `www`			- common web assets
+* `merges/android`	- Android specific web assets to override those in `www`
+* `merges/ios`		- iOS specific web assets to override those in `www`
+* `platforms/android`	- Android specific files
+* `platforms/ios`	- iOS / Xcode specific files
+* `chrome`		- I put the files for the chrome hosted app here, including the manifest and icons in chrome/app
 
 ## Install On Your Phone / Tablet
 * [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
