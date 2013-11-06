@@ -86,7 +86,7 @@ extras:(NSDictionary *)extraDict;
 
 	CDVPluginResult *pluginResult;
 	NSString *callbackId = command.callbackId;
-	NSArray* arguments = command.arguments;
+	//NSArray* arguments = command.arguments;
 
 	if(self.bannerView) {
 		[self.bannerView removeFromSuperview];
