@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		164D0B46560243AF86E916C1 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 69276E363188430E85F1E1DB /* CDVDevice.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -46,6 +45,8 @@
 		B3CFE7DE822644F99E583B36 /* CDVReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6B730A1FC24E9A8D6437A0 /* CDVReachability.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
+		2E3E44858DDF4EDCB2D4CFCD /* CoreData.framework in Resources */ = {isa = PBXBuildFile; fileRef = D03EFF8BDB724BD6AAA844EE /* CoreData.framework */; };
+		43970C2E91CE4228A7917096 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C8CF59D7448D4495825ED09B /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,8 @@
 		B4C04CF0BB9A42AEA337988C /* SystemConfiguration.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Advice Owl/config.xml"; sourceTree = "<group>"; };
+		D03EFF8BDB724BD6AAA844EE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreData.framework"; path = "System/Library/Frameworks/CoreData.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		C8CF59D7448D4495825ED09B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libz.dylib"; path = "usr/lib/libz.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				5DCB42AB1829A33D00165AE1 /* libGoogleAdMobAds.a in Frameworks */,
 				5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */,
+				2E3E44858DDF4EDCB2D4CFCD /* CoreData.framework in Resources */,
+				43970C2E91CE4228A7917096 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +257,8 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				B4C04CF0BB9A42AEA337988C /* SystemConfiguration.framework */,
+				D03EFF8BDB724BD6AAA844EE /* CoreData.framework */,
+				C8CF59D7448D4495825ED09B /* libz.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -565,8 +572,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Drake Emko (47FZX6VTK5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Drake Emko (47FZX6VTK5)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Advice Owl/Advice Owl-Prefix.pch";
