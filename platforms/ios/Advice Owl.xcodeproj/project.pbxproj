@@ -32,6 +32,9 @@
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		5DA1CBC4182A950700AAE28D /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1CBC3182A950700AAE28D /* icon-120.png */; };
+		5DA1CBC6182A954500AAE28D /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1CBC5182A954500AAE28D /* icon-76.png */; };
+		5DA1CBC8182A955E00AAE28D /* icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1CBC7182A955E00AAE28D /* icon-152.png */; };
 		5DCB42AB1829A33D00165AE1 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCB42AA1829A33D00165AE1 /* libGoogleAdMobAds.a */; };
 		5DCB42AD1829A46900165AE1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCB42AC1829A46900165AE1 /* AdSupport.framework */; };
 		5DCB42AF1829A50E00165AE1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCB42AE1829A50E00165AE1 /* StoreKit.framework */; };
@@ -96,6 +99,9 @@
 		526752CC34004FC58AFE6BE6 /* CDVAdMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVAdMob.m; path = com.rjfun.cordova.plugin.admob/CDVAdMob.m; sourceTree = "<group>"; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5DA1CBC3182A950700AAE28D /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-120.png"; path = "Advice Owl/Resources/icons/icon-120.png"; sourceTree = "<group>"; };
+		5DA1CBC5182A954500AAE28D /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-76.png"; path = "Advice Owl/Resources/icons/icon-76.png"; sourceTree = "<group>"; };
+		5DA1CBC7182A955E00AAE28D /* icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-152.png"; path = "Advice Owl/Resources/icons/icon-152.png"; sourceTree = "<group>"; };
 		5DCB42A11829A33D00165AE1 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdMobExtras.h; path = "../../../../Downloads/GoogleAdMobAdsSDKiOS-6.6.0/GADAdMobExtras.h"; sourceTree = "<group>"; };
 		5DCB42A21829A33D00165AE1 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdNetworkExtras.h; path = "../../../../Downloads/GoogleAdMobAdsSDKiOS-6.6.0/GADAdNetworkExtras.h"; sourceTree = "<group>"; };
 		5DCB42A31829A33D00165AE1 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADAdSize.h; path = "../../../../Downloads/GoogleAdMobAdsSDKiOS-6.6.0/GADAdSize.h"; sourceTree = "<group>"; };
@@ -183,6 +189,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5DA1CBC7182A955E00AAE28D /* icon-152.png */,
+				5DA1CBC5182A954500AAE28D /* icon-76.png */,
+				5DA1CBC3182A950700AAE28D /* icon-120.png */,
 				5DCB42A11829A33D00165AE1 /* GADAdMobExtras.h */,
 				5DCB42A21829A33D00165AE1 /* GADAdNetworkExtras.h */,
 				5DCB42A31829A33D00165AE1 /* GADAdSize.h */,
@@ -393,6 +402,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DA1CBC8182A955E00AAE28D /* icon-152.png in Resources */,
+				5DA1CBC6182A954500AAE28D /* icon-76.png in Resources */,
+				5DA1CBC4182A950700AAE28D /* icon-120.png in Resources */,
 				F840E1F1165FE0F500CFE078 /* config.xml in Resources */,
 				308D05371370CCF300D202BF /* icon-72.png in Resources */,
 				308D05381370CCF300D202BF /* icon.png in Resources */,
@@ -543,7 +555,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Advice Owl";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "E0022250-5D0A-4B8A-A7CF-3683F0E89D41";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
