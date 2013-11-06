@@ -10,6 +10,8 @@ function openLink(link) {
 
 function doCustomActions() {
 	createBannerView();
+	analytics.startTrackerWithId('UA-45095317-2');
+	analytics.trackView('net.edrake.adviceowl.AdviceOwl');
 }
 
 function createBannerView() {
