@@ -16,7 +16,16 @@ This project is organized to make use of the Cordova command line tools (version
 * `platforms/android`	- Android specific files
 * `platforms/ios`	- iOS / Xcode specific files
 * `chrome`		- files for the Chrome hosted web app
-* `chrome/app`		- Chrome hosted web app metadata files, including the manifest and icons
+* `chrome/app`		- metadata files for the Chrome hosted web app, including the manifest and icons
+
+## Building and Running
+I originally wrote AdviceOwl using Apache Cordova 2.9 solely for Android. I later reorganized it to use [Apache Cordova 3.1](http://cordova.apache.org/docs/en/3.1.0/) for multiple Operating Systems, and have been building and running the project using the [Cordova 3.1 CLI](http://cordova.apache.org/docs/en/3.1.0/guide_cli_index.md.html#The%20Command-line%20Interface).
+
+If you don't have Cordova 3.1 installed, follow the [CLI instructions](http://cordova.apache.org/docs/en/3.1.0/guide_cli_index.md.html#The%20Command-line%20Interface). If you have an older version, you can [upgrade](http://cordova.apache.org/blog/releases/2013/10/02/cordova-31.html). If, by the time you read this, there is a newer version of Cordova, you can probably use that :).
+
+I have had success running the project on a virtual iPhone as well as my physical Android phone. On the command line, within the project directory:
+* iOS - `cordova emulate ios --verbose`
+* Android (plug your phone into your computer) - `cordova run android --verbose`
 
 ## Install On Your Phone / Tablet
 * [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
