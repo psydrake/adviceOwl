@@ -30,6 +30,7 @@ I have had success running the project on a virtual iPhone as well as my physica
 ## Install On Your Phone / Tablet
 * [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
 * [Advice Owl for Kindle](http://www.amazon.com/Drake-Emko-Advice-Owl/dp/B00FTPNLES/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1381829714&sr=1-1)
+* [Advice Owl for iOS](https://itunes.apple.com/us/app/advice-owl/id739076106?ls=1&mt=8)
 
 ## Use As A Web App
 * [Advice Owl in the Chrome Web Store](https://chrome.google.com/webstore/detail/advice-owl/pijbdbmaecnapkoefghdfiakpiiogeao)
