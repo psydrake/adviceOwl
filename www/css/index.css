@@ -142,8 +142,9 @@ h1 {
 	padding-left: 8pt;
 }
 
-#adviceList li img {
+#adviceList li img { /* based off of proportions from large Ask Polly pics */
 	max-width: 250px;
+	max-height: 170px;
 }
 
 .adviceEntry {

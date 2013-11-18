@@ -306,6 +306,12 @@ function fixContent(content) {
 	if (content.match(linkRegex)) {
 	    content = content.replace(linkRegex, "$1" + '"javascript:void(0);" onclick="openLink(\'' + "$2" + '\');"' + "$3");
 	}
+
+	// add break after image in Ask Polly articles
+    var askPollyPicRegex = new RegExp("(<img.*?theawl\.com.*?>.*?)(<b>Dear Polly,</b>)");
+    if (content.match(askPollyPicRegex)) {
+        content = content.replace(askPollyPicRegex, "$1" + '<br/><br/>' + "$2");
+    }
 	
 	return content;
 }
