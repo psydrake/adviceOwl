@@ -14,7 +14,7 @@ UniversalAnalyticsPlugin.prototype.trackEvent = function(category, action, label
 
 module.exports = new UniversalAnalyticsPlugin();
 
-// iOS specific (in-app browser)
+// Use in-app browser for iOS
 function openLink(link) {
 	if (link && link.match(/^mailto:/)) {
 		window.open(encodeURI(link)); 
@@ -24,17 +24,13 @@ function openLink(link) {
 	}
 }
 
-// custom functions for iOS
+// initialize admob banner and google analytics
 function doCustomActions() {
 	createBannerView();
 	initializeUniversalAnalytics();
 }
 
-function initializeUniveralAnalytics() {
-	analytics.startTrackerWithId('UA-45095317-2');
-	analytics.trackView('Main');
-}
-
+// custom functions for iOS
 function createBannerView() {
 	var am = window.plugins.AdMob;
     am.createBannerView( 
@@ -81,4 +77,9 @@ function showAd() {
 			// fail quietly
 		}
 	 );
+}
+
+function initializeUniveralAnalytics() {
+	analytics.startTrackerWithId('UA-45095317-2');
+	analytics.trackView('Main');
 }
