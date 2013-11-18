@@ -51,3 +51,5 @@ fi
 xcodebuild -xcconfig "$CORDOVA_PATH/build.xcconfig" -project "$PROJECT_NAME.xcodeproj" ARCHS="armv7 armv7s" -target "$PROJECT_NAME" -configuration $CONFIGURATION -sdk iphoneos build VALID_ARCHS="armv7 armv7s" CONFIGURATION_BUILD_DIR="$PROJECT_PATH/build/device"
 xcodebuild -project "$PROJECT_NAME.xcodeproj" -arch i386 -target "$PROJECT_NAME" -configuration $CONFIGURATION -sdk iphonesimulator build VALID_ARCHS="i386" CONFIGURATION_BUILD_DIR="$PROJECT_PATH/build/emulator"
 
+# package name in iOS is different than what Cordova expects by default - restore correct name in generated file
+perl -pi -e "s/net\.edrake\.adviceowl/net\.edrake\.AdviceOwl/g" $PROJECT_PATH/Advice\ Owl/Advice\ Owl-Info.plist
