@@ -1,6 +1,9 @@
 # package up metadata for the chrome web store
 zip -r app.zip app
 
+# clean up working web app directory
+rm -fr www/*
+
 # copy web assets from main project's www directory
 cp -a ../www/ www/
 
