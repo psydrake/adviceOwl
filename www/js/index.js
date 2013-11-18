@@ -82,7 +82,7 @@ function exitApp() {
 	return true;
 }
 
-var DEFAULT_VERSION_NAME = '1.2';
+var DEFAULT_VERSION_NAME = '1.3';
 var MILLISECONDS_WAIT = 6000; // base amount of time to wait between the start of feed displaying and the sort operation
 var MILLISECONDS_BETWEEN_REFRESH = 1000 * 60 * 60; // do a content refresh if it's been 1 hour since the last cache update
 var NUM_ENTRIES_PER_COLUMN = 3;

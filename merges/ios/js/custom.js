@@ -1,19 +1,3 @@
-function UniversalAnalyticsPlugin() {};
-
-UniversalAnalyticsPlugin.prototype.startTrackerWithId = function(id) {
-	cordova.exec(function() {}, function() {}, 'UniversalAnalytics', 'startTrackerWithId', [id]);
-};
-
-UniversalAnalyticsPlugin.prototype.trackView = function(screen) {
-	cordova.exec(function() {}, function() {}, 'UniversalAnalytics', 'trackView', [screen]);
-};
-
-UniversalAnalyticsPlugin.prototype.trackEvent = function(category, action, label) {
-	cordova.exec(function() {}, function() {}, 'UniversalAnalytics', 'trackEvent', [category, action, label]);
-};
-
-module.exports = new UniversalAnalyticsPlugin();
-
 // Use in-app browser for iOS
 function openLink(link) {
 	if (link && link.match(/^mailto:/)) {
@@ -81,5 +65,5 @@ function showAd() {
 
 function initializeUniveralAnalytics() {
 	analytics.startTrackerWithId('UA-45095317-2');
-	analytics.trackView('Main');
+	analytics.trackView('Main - iOS');
 }
