@@ -63,7 +63,7 @@ function showAd() {
 	 );
 }
 
-function initializeUniveralAnalytics() {
+function initializeUniversalAnalytics() {
 	analytics.startTrackerWithId('UA-45095317-2');
 	analytics.trackView('Main - iOS');
 }

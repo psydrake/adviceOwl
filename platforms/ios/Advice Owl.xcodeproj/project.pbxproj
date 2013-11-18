@@ -43,6 +43,7 @@
 		5DCB42B11829A51700165AE1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCB42B01829A51700165AE1 /* AudioToolbox.framework */; };
 		5DCB42B31829A52800165AE1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCB42B21829A52800165AE1 /* MessageUI.framework */; };
 		5DEB17E9183A8A57005E112E /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEB17E8183A8A57005E112E /* libGoogleAnalyticsServices.a */; };
+		5DEB1811183ACB61005E112E /* UniversalAnalyticsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEB1810183ACB61005E112E /* UniversalAnalyticsPlugin.m */; };
 		6110819E750943A38E1920A2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C04CF0BB9A42AEA337988C /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7B0420E0724547CDA8B3B708 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 802379DE9DB64FCDA9C654BB /* CDVConnection.m */; };
 		8EEBDBF330AB4A9CA04BF6F8 /* CDVAdMob.m in Sources */ = {isa = PBXBuildFile; fileRef = 526752CC34004FC58AFE6BE6 /* CDVAdMob.m */; };
@@ -127,6 +128,8 @@
 		5DEB17E6183A8A2D005E112E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		5DEB17E7183A8A2D005E112E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		5DEB17E8183A8A57005E112E /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		5DEB180F183ACB61005E112E /* UniversalAnalyticsPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniversalAnalyticsPlugin.h; path = com.danielcwilson.plugins.googleanalytics/UniversalAnalyticsPlugin.h; sourceTree = "<group>"; };
+		5DEB1810183ACB61005E112E /* UniversalAnalyticsPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniversalAnalyticsPlugin.m; path = com.danielcwilson.plugins.googleanalytics/UniversalAnalyticsPlugin.m; sourceTree = "<group>"; };
 		66D82F1472EE415B965589E0 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.m; sourceTree = "<group>"; };
 		69276E363188430E85F1E1DB /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
 		802379DE9DB64FCDA9C654BB /* CDVConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVConnection.m; path = "org.apache.cordova.network-information/CDVConnection.m"; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				5DEB180F183ACB61005E112E /* UniversalAnalyticsPlugin.h */,
+				5DEB1810183ACB61005E112E /* UniversalAnalyticsPlugin.m */,
 				69276E363188430E85F1E1DB /* CDVDevice.m */,
 				086A333E3A7545A2A346BA9A /* CDVDevice.h */,
 				802379DE9DB64FCDA9C654BB /* CDVConnection.m */,
@@ -480,6 +485,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				164D0B46560243AF86E916C1 /* CDVDevice.m in Sources */,
+				5DEB1811183ACB61005E112E /* UniversalAnalyticsPlugin.m in Sources */,
 				7B0420E0724547CDA8B3B708 /* CDVConnection.m in Sources */,
 				B3CFE7DE822644F99E583B36 /* CDVReachability.m in Sources */,
 				2FA4503D38CD48D59DB62F3C /* CDVInAppBrowser.m in Sources */,
