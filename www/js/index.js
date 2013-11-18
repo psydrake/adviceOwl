@@ -83,9 +83,9 @@ function exitApp() {
 }
 
 var DEFAULT_VERSION_NAME = '1.3';
-var MILLISECONDS_WAIT = 6000; // base amount of time to wait between the start of feed displaying and the sort operation
+var MILLISECONDS_WAIT = 6500; // base amount of time to wait between the start of feed displaying and the sort operation
 var MILLISECONDS_BETWEEN_REFRESH = 1000 * 60 * 60; // do a content refresh if it's been 1 hour since the last cache update
-var NUM_ENTRIES_PER_COLUMN = 3;
+var NUM_ENTRIES_PER_COLUMN = 2;
 var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', image: 'prudie.jpg'},
                 {name: 'Ask Amy', url: 'http://amydickinson.com/rss', image: 'amy_dickenson.jpg', filter: {category: 'Ask Amy'}},
 	            {name: 'Carolyn Hax', url: 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax', image: 'hax.jpg'},
