@@ -42,6 +42,7 @@
 		5DCB42AF1829A50E00165AE1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCB42AE1829A50E00165AE1 /* StoreKit.framework */; };
 		5DCB42B11829A51700165AE1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCB42B01829A51700165AE1 /* AudioToolbox.framework */; };
 		5DCB42B31829A52800165AE1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCB42B21829A52800165AE1 /* MessageUI.framework */; };
+		5DEB17E9183A8A57005E112E /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEB17E8183A8A57005E112E /* libGoogleAnalyticsServices.a */; };
 		6110819E750943A38E1920A2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C04CF0BB9A42AEA337988C /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7B0420E0724547CDA8B3B708 /* CDVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 802379DE9DB64FCDA9C654BB /* CDVConnection.m */; };
 		8EEBDBF330AB4A9CA04BF6F8 /* CDVAdMob.m in Sources */ = {isa = PBXBuildFile; fileRef = 526752CC34004FC58AFE6BE6 /* CDVAdMob.m */; };
@@ -119,6 +120,13 @@
 		5DCB42AE1829A50E00165AE1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5DCB42B01829A51700165AE1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5DCB42B21829A52800165AE1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5DEB17E2183A8A2D005E112E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		5DEB17E3183A8A2D005E112E /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		5DEB17E4183A8A2D005E112E /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		5DEB17E5183A8A2D005E112E /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		5DEB17E6183A8A2D005E112E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		5DEB17E7183A8A2D005E112E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		5DEB17E8183A8A57005E112E /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		66D82F1472EE415B965589E0 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVInAppBrowser.m; path = org.apache.cordova.inappbrowser/CDVInAppBrowser.m; sourceTree = "<group>"; };
 		69276E363188430E85F1E1DB /* CDVDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = org.apache.cordova.device/CDVDevice.m; sourceTree = "<group>"; };
 		802379DE9DB64FCDA9C654BB /* CDVConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVConnection.m; path = "org.apache.cordova.network-information/CDVConnection.m"; sourceTree = "<group>"; };
@@ -140,6 +148,7 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				6110819E750943A38E1920A2 /* SystemConfiguration.framework in Frameworks */,
 				5DCB42B31829A52800165AE1 /* MessageUI.framework in Frameworks */,
+				5DEB17E9183A8A57005E112E /* libGoogleAnalyticsServices.a in Frameworks */,
 				5DCB42B11829A51700165AE1 /* AudioToolbox.framework in Frameworks */,
 				5DCB42AF1829A50E00165AE1 /* StoreKit.framework in Frameworks */,
 				5DCB42AD1829A46900165AE1 /* AdSupport.framework in Frameworks */,
@@ -196,6 +205,13 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				5DEB17E8183A8A57005E112E /* libGoogleAnalyticsServices.a */,
+				5DEB17E2183A8A2D005E112E /* GAI.h */,
+				5DEB17E3183A8A2D005E112E /* GAIDictionaryBuilder.h */,
+				5DEB17E4183A8A2D005E112E /* GAIFields.h */,
+				5DEB17E5183A8A2D005E112E /* GAILogger.h */,
+				5DEB17E6183A8A2D005E112E /* GAITrackedViewController.h */,
+				5DEB17E7183A8A2D005E112E /* GAITracker.h */,
 				5DC0EC21182AC33F00D78BD0 /* GADAdMobExtras.h */,
 				5DC0EC22182AC33F00D78BD0 /* GADAdNetworkExtras.h */,
 				5DC0EC23182AC33F00D78BD0 /* GADAdSize.h */,
