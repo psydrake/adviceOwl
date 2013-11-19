@@ -557,7 +557,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/revdrakeemko/Downloads/GoogleAdMobAdsSDKiOS-6.6.0",
+					"/Users/revdrakeemko/projects/adviceOwl/vendor/ios/GoogleAdMobAdsSDKiOS-6.6.0",
 					/Users/revdrakeemko/projects/adviceOwl/platforms/ios,
 				);
 				OTHER_LDFLAGS = (
@@ -610,7 +610,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/revdrakeemko/Downloads/GoogleAdMobAdsSDKiOS-6.6.0",
+					"/Users/revdrakeemko/projects/adviceOwl/vendor/ios/GoogleAdMobAdsSDKiOS-6.6.0",
 					/Users/revdrakeemko/projects/adviceOwl/platforms/ios,
 				);
 				OTHER_LDFLAGS = (
