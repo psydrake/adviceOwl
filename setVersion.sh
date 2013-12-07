@@ -16,3 +16,4 @@ perl -pi -e "s/DEFAULT_VERSION_NAME\s*=\s*'\d+\.\d+'/DEFAULT_VERSION_NAME\ =\ '$
 
 perl -pi -e "s/android\:versionCode=\"\d+\"/android\:versionCode=\"${VERSION_CODE}\"/" platforms/android/AndroidManifest.xml
 
+perl -pi -e "s/\"version\"\:\ \"\d+\.\d+\.\d+\"/\"version\"\:\ \"${VERSION}\.${VERSION_CODE}\"/" chrome/app/manifest.json
