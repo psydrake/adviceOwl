@@ -6,10 +6,10 @@
   "icons": { "16": "adviceOwl-16.png", "128": "adviceOwl-128.png" },
   "app": {
     "urls": [
-      "http://d2whqoo26gzkh3.cloudfront.net/adviceOwl/main.html"
+	"http://dznxs8nwc537r.cloudfront.net/main.html"
     ],
     "launch": {
-      "web_url": "http://d2whqoo26gzkh3.cloudfront.net/adviceOwl/main.html"
+	"web_url": "http://dznxs8nwc537r.cloudfront.net/main.html"
     }
   }
 }
