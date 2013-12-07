@@ -34,7 +34,7 @@ I have had success running the project on a virtual iPhone as well as my physica
 
 ## Use As A Web App
 * [Advice Owl in the Chrome Web Store](https://chrome.google.com/webstore/detail/advice-owl/pijbdbmaecnapkoefghdfiakpiiogeao)
-* [Advice Owl as a Web Site](http://d2whqoo26gzkh3.cloudfront.net/adviceOwl/)
+* [Advice Owl as a Web Site](http://dznxs8nwc537r.cloudfront.net/)
 
 ## Author
 Drake Emko - drakee (a) gmail.com
