@@ -12,6 +12,6 @@ function trackPageInGoogleAnalytics() {
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 	
-	  ga('create', 'UA-45095317-1', 'd2whqoo26gzkh3.cloudfront.net');
+	  ga('create', 'UA-45095317-1', 'dznxs8nwc537r.cloudfront.net');
 	  ga('send', 'pageview');
 }
