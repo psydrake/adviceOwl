@@ -28,7 +28,7 @@ import org.apache.cordova.*;
 import com.google.ads.*;
 import com.google.analytics.tracking.android.EasyTracker;
 
-public class AdviceOwl extends DroidGap {
+public class AdviceOwl extends CordovaActivity {
 	
     private String versionName = "0";
     private int versionCode = 0;
