@@ -27,13 +27,14 @@ import android.view.View;
 import org.apache.cordova.*;
 import com.google.ads.*;
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
 
 public class AdviceOwl extends DroidGap {
 	
     private String versionName = "0";
     private int versionCode = 0;
     
-    private static final String ADMOB_AD_UNIT = "ca-app-pub-8928397865273246/9320737011";
+    private static final String ADMOB_AD_UNIT = "ca-app-pub-8928397865273246/7142119013";
     private AdView adView;
 	
     @Override
@@ -78,7 +79,9 @@ public class AdviceOwl extends DroidGap {
     @Override
     public void onStart() {
       super.onStart();      
-      EasyTracker.getInstance(this).activityStart(this); // Google analytics
+      EasyTracker et = EasyTracker.getInstance(this);
+	  et.set(Fields.SCREEN_NAME, "Main - Blackberry");
+	  et.activityStart(this); // Google analytics
     }
 
     @Override
