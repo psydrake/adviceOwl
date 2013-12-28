@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="net.edrake.adviceowl" version="1.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Hello Cordova</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="UniversalAnalytics">
+        <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
+    </feature>
+    <feature name="AdMob">
+        <param name="android-package" value="com.rjfun.cordova.plugin.AdMob" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <name>Advice Owl</name>
+    <description>
+        Read all your favorite advice columns in one app. Advice Owl gathers the latest articles from several of the most popular advice column RSS feeds, including Dear Prudence, Ask Amy, and Savage Love. The results are displayed for you in one convenient page, sorted by date. Satisfy your need for love, relationship, etiquette, work, and dating advice, all in one place!
+    </description>
+    <access origin="*" />
+    <feature name="App">
+        <param name="android-package" value="org.apache.cordova.App" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <preference name="loglevel" value="INFO" />
+    <preference name="useBrowserHistory" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="load-url-timeout" value="60000" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+    <author email="drakee@gmail.com" href="https://github.com/psydrake">
+        Drake Emko
+    </author>
+    <content src="index.html" />
+</widget>
