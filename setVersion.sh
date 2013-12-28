@@ -8,7 +8,7 @@
 VERSION=1.4
 
 # Only used in Android. Appended as minor version number if avaliable
-VERSION_CODE=21
+VERSION_CODE=22
 
 perl -pi -e "s/\sversion=\"\d+\.\d+\"\s/\ version=\"${VERSION}\"\ /" www/config.xml
 
