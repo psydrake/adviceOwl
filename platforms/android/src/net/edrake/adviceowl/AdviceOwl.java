@@ -35,7 +35,6 @@ import java.util.TimerTask;
 
 public class AdviceOwl extends CordovaActivity {
     private static final String ADMOB_AD_UNIT = "ca-app-pub-8928397865273246/9320737011";
-    private AdView adView;
 	
     private String versionName = "0";
     private int versionCode = 0;
