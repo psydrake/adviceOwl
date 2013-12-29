@@ -4,36 +4,24 @@
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
-    <preference name="AllowInlineMediaPlayback" value="false" />
-    <preference name="AutoHideSplashScreen" value="true" />
-    <preference name="BackupWebStorage" value="cloud" />
-    <preference name="DisallowOverscroll" value="false" />
-    <preference name="EnableViewportScale" value="false" />
-    <preference name="FadeSplashScreen" value="true" />
-    <preference name="FadeSplashScreenDuration" value=".25" />
-    <preference name="HideKeyboardFormAccessoryBar" value="false" />
-    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
-    <preference name="KeyboardShrinksView" value="false" />
-    <preference name="MediaPlaybackRequiresUserAction" value="false" />
-    <preference name="ShowSplashScreenSpinner" value="true" />
-    <preference name="SuppressesIncrementalRendering" value="false" />
-    <preference name="TopActivityIndicator" value="gray" />
-    <preference name="GapBetweenPages" value="0" />
-    <preference name="PageLength" value="0" />
-    <preference name="PaginationBreakingMode" value="page" />
-    <preference name="PaginationMode" value="unpaginated" />
-    <feature name="LocalStorage">
-        <param name="ios-package" value="CDVLocalStorage" />
-    </feature>
+    <preference name="loglevel" value="DEBUG" />
     <feature name="UniversalAnalytics">
-        <param name="ios-package" value="UniversalAnalyticsPlugin" />
+        <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
     </feature>
     <feature name="AdMob">
-        <param name="ios-package" value="CDVAdMob" />
+        <param name="android-package" value="com.rjfun.cordova.plugin.AdMob" />
     </feature>
     <feature name="InAppBrowser">
-        <param name="ios-package" value="CDVInAppBrowser" />
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
+    <name>Advice Owl</name>
+    <description>
+        Read all your favorite advice columns in one app. Advice Owl gathers the latest articles from several of the most popular advice column RSS feeds, including Dear Prudence, Ask Amy, and Savage Love. The results are displayed for you in one convenient page, sorted by date. Satisfy your need for love, relationship, etiquette, work, and dating advice, all in one place!
+    </description>
+    <name>Advice Owl</name>
+    <description>
+        Read all your favorite advice columns in one app. Advice Owl gathers the latest articles from several of the most popular advice column RSS feeds, including Dear Prudence, Ask Amy, and Savage Love. The results are displayed for you in one convenient page, sorted by date. Satisfy your need for love, relationship, etiquette, work, and dating advice, all in one place!
+    </description>
     <name>Advice Owl</name>
     <description>
         Read all your favorite advice columns in one app. Advice Owl gathers the latest articles from several of the most popular advice column RSS feeds, including Dear Prudence, Ask Amy, and Savage Love. The results are displayed for you in one convenient page, sorted by date. Satisfy your need for love, relationship, etiquette, work, and dating advice, all in one place!
@@ -43,11 +31,9 @@
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
     <feature name="Device">
-        <param name="ios-package" value="CDVDevice" />
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
     <feature name="NetworkStatus">
-        <param name="ios-package" value="CDVConnection" />
         <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
     </feature>
     <preference name="loglevel" value="INFO" />
