@@ -21,21 +21,27 @@ package net.edrake.adviceowl;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.LinearLayout;
 import android.view.View;
 
 import org.apache.cordova.*;
 import com.google.ads.*;
-import com.google.analytics.tracking.android.EasyTracker;
-import com.google.analytics.tracking.android.Fields;
+
+//import com.google.analytics.tracking.android.EasyTracker;
+//import com.google.analytics.tracking.android.Fields;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class AdviceOwl extends CordovaActivity {
+    private static final String ADMOB_AD_UNIT = "ca-app-pub-8928397865273246/7142119013";
 	
     private String versionName = "0";
     private int versionCode = 0;
     
-    private static final String ADMOB_AD_UNIT = "ca-app-pub-8928397865273246/7142119013";
-    private AdView adView;
+	Timer timer;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,16 +72,38 @@ public class AdviceOwl extends CordovaActivity {
         catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        
-        // Google AdMob
-        adView = new AdView(this, AdSize.BANNER, ADMOB_AD_UNIT); 
-        LinearLayout layout = super.root;
-        layout.addView(adView); 
-        AdRequest request = new AdRequest();
-        //request.setTesting(true);
-        adView.loadAd(request);
+
+		// Google AdMob
+		AdView adView = new AdView(this, AdSize.BANNER, ADMOB_AD_UNIT); 
+		LinearLayout layout = super.root;
+		layout.addView(adView); 
+
+        timer = new Timer(); // Delay the launch of ads; otherwise we get a seg fault
+        timer.schedule(new AdMobTask(adView), 10*1000); // delay 10 seconds
     }
-    
+
+    class AdMobTask extends TimerTask {
+		private Handler mHandler = new Handler(Looper.getMainLooper());
+		private AdView adView;
+
+		public AdMobTask(AdView adView) {
+			this.adView = adView;
+		}
+
+        @Override
+        public void run() {
+			mHandler.post(new Runnable() {
+				public void run() {
+					AdRequest request = new AdRequest();
+					//request.setTesting(true);
+					adView.loadAd(request);
+		            timer.cancel();
+				}
+			});
+        }
+    }
+
+	/*
     @Override
     public void onStart() {
       super.onStart();      
@@ -89,7 +117,8 @@ public class AdviceOwl extends CordovaActivity {
       super.onStop();      
       EasyTracker.getInstance(this).activityStop(this); // Google analytics      
     }
-    
+	*/
+
 	public String getVersionName() {
 		return versionName;
 	}
@@ -98,3 +127,5 @@ public class AdviceOwl extends CordovaActivity {
 		return versionCode;
 	}
 }
+
+
