@@ -1,9 +1,6 @@
 // Platform: android
-<<<<<<< HEAD
-// 3.2.0
-=======
 // 3.3.0
->>>>>>> master
+
 /*
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
@@ -23,11 +20,7 @@
  under the License.
 */
 ;(function() {
-<<<<<<< HEAD
-var CORDOVA_JS_BUILD_LABEL = '3.2.0';
-=======
 var CORDOVA_JS_BUILD_LABEL = '3.3.0';
->>>>>>> master
 // file: lib/scripts/require.js
 
 /*jshint -W079 */
@@ -42,13 +35,7 @@ var require,
         requireStack = [],
     // Map of module ID -> index into requireStack of modules currently being built.
         inProgressModules = {},
-<<<<<<< HEAD
-        SEPERATOR = ".";
-=======
         SEPARATOR = ".";
->>>>>>> master
-
-
 
     function build(module) {
         var factory = module.factory,
@@ -56,11 +43,7 @@ var require,
                 var resultantId = id;
                 //Its a relative path, so lop off the last portion and add the id (minus "./")
                 if (id.charAt(0) === ".") {
-<<<<<<< HEAD
-                    resultantId = module.id.slice(0, module.id.lastIndexOf(SEPERATOR)) + SEPERATOR + id.slice(2);
-=======
                     resultantId = module.id.slice(0, module.id.lastIndexOf(SEPARATOR)) + SEPARATOR + id.slice(2);
->>>>>>> master
                 }
                 return require(resultantId);
             };
@@ -568,11 +551,7 @@ function include(parent, objects, clobber, merge) {
                 include(result, obj.children, clobber, merge);
             }
         } catch(e) {
-<<<<<<< HEAD
-            utils.alert('Exception building cordova JS globals: ' + e + ' for key "' + key + '"');
-=======
             utils.alert('Exception building Cordova JS globals: ' + e + ' for key "' + key + '"');
->>>>>>> master
         }
     });
 }
