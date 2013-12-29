@@ -28,7 +28,7 @@ import android.view.View;
 
 import org.apache.cordova.*;
 import com.google.ads.*;
-//import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.EasyTracker;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -101,7 +101,6 @@ public class AdviceOwl extends CordovaActivity {
         }
     }
 
-	/*
     @Override
     public void onStart() {
       super.onStart();      
@@ -113,7 +112,6 @@ public class AdviceOwl extends CordovaActivity {
       super.onStop();      
       EasyTracker.getInstance(this).activityStop(this); // Google analytics      
     }
-	*/
 
 	public String getVersionName() {
 		return versionName;
