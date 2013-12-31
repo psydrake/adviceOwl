@@ -2,10 +2,13 @@
   "version": "1.4.24",
   "name": "Advice Owl",
   "description": "Read all your favorite advice columns in one app.",
-  "launch_path": "http://dznxs8nwc537r.cloudfront.net/main.html",
+  "launch_path": "/main.html",
   "icons": {
     "16": "/img/adviceOwl-16.png",
     "48": "/img/adviceOwl-48.png",
+    "60": "/img/adviceOwl-60.png",
+    "90": "/img/adviceOwl-90.png",
+    "120": "/img/adviceOwl-120.png",
     "128": "/img/adviceOwl-128.png"
   },
   "developer": {
