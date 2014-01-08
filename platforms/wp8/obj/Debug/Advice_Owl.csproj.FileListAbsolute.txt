@@ -1,0 +1,13 @@
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\Bin\Debug\ApplicationIcon.png
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\Bin\Debug\Background.png
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\Bin\Debug\net.edrake.adviceowl.dll
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\Bin\Debug\net.edrake.adviceowl.pdb
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\Bin\Debug\AppManifest.xaml
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\Bin\Debug\CordovaAppProj_Debug_AnyCPU.xap
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\App.g.cs
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\cordovalib\CordovaView.g.cs
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\MainPage.g.cs
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\net.edrake.adviceowl.g.resources
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\net.edrake.adviceowl.dll
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\net.edrake.adviceowl.pdb
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\XapCacheFile.xml
