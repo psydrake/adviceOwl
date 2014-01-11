@@ -10,8 +10,8 @@ function openLink(link) {
 
 // initialize admob banner and google analytics
 function doCustomActions() {
-	//createBannerView();
-	//initializeUniversalAnalytics();
+	createBannerView();
+	initializeUniversalAnalytics();
 }
 
 // custom functions for iOS
