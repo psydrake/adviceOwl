@@ -163,7 +163,8 @@ function loadColumns(forceRefresh) {
 
 function sortElements() {
 	$('#adviceList li').sort(function(a, b) {
-	    return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
+	    //return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
+	    return a.getAttribute('data-timestamp') > b.getAttribute('data-timestamp') ? -1 : 1;
 	}).appendTo('#adviceList');
 
 	$('#refreshImage').attr('src', 'img/refresh.png');
