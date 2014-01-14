@@ -4,7 +4,7 @@
   <Languages xmlns="">
     <Language code="en-US" />
   </Languages>
-  <App Author="Advice Owl author" BitsPerPixel="32" Description="Advice Owl gathers the latest articles from several of the most popular advice column RSS feeds, sorted by date on one convenient page. Satisfy your need for love, relationship, etiquette, work, and dating advice, all in one place!" Genre="apps.normal" ProductID="{84948356-7A0C-4341-B48D-90744CBA0AAA}" Publisher="Advice Owl" PublisherID="{db093ed5-53b1-45f7-af72-751e8f36ab80}" RuntimeType="Silverlight" Title="Advice Owl" Version="1.4" xmlns="">
+  <App Author="Drake Emko" BitsPerPixel="32" Description="Advice Owl gathers the latest articles from several of the most popular advice column RSS feeds, sorted by date on one convenient page. Satisfy your need for love, relationship, etiquette, work, and dating advice, all in one place!" Genre="apps.normal" ProductID="{84948356-7A0C-4341-B48D-90744CBA0AAA}" Publisher="Advice Owl" PublisherID="{db093ed5-53b1-45f7-af72-751e8f36ab80}" RuntimeType="Silverlight" Title="Advice Owl" Version="1.4" xmlns="">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
@@ -17,14 +17,14 @@
     <Tokens>
       <PrimaryToken TaskName="_default" TokenID="Advice OwlToken">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">adviceOwlIcon_color_384_trans_border_512.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">tileSmall.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Background.png</BackgroundImageURI>
+          <BackgroundImageURI IsRelative="true" IsResource="false">tileMedium.png</BackgroundImageURI>
           <Title>Advice Owl</Title>
           <BackContent />
           <BackBackgroundImageURI />
           <BackTitle />
-          <LargeBackgroundImageURI />
+          <LargeBackgroundImageURI>tileLarge.png</LargeBackgroundImageURI>
           <LargeBackContent />
           <LargeBackBackgroundImageURI />
           <DeviceLockImageURI />
