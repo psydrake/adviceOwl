@@ -12,3 +12,7 @@ platforms/ios/Advice\ Owl.xcodeproj/project.pbxproj
 console.log
 chrome/app.zip
 chrome/www/*
+obj/
+**/Bin/Debug/*
+*.suo
+*.user
