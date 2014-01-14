@@ -19,5 +19,3 @@ perl -pi -e "s/android\:versionCode=\"\d+\"/android\:versionCode=\"${VERSION_COD
 perl -pi -e "s/\"version\"\:\ \"\d+\.\d+\.\d+\"/\"version\"\:\ \"${VERSION}\.${VERSION_CODE}\"/" chrome/app/manifest.json
 
 perl -pi -e "s/\"version\"\:\ \"\d+\.\d+\.\d+\"/\"version\"\:\ \"${VERSION}\.${VERSION_CODE}\"/" chrome/merges/manifest.webapp
-
-perl -pi -e "s/av\:\ \'\d+\.\d+\.\d+\'/\av\:\ \'${VERSION}\.${VERSION_CODE}\'/" merges/wp8/js/custom.js
