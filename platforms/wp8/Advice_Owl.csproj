@@ -298,9 +298,6 @@
         <Content Include="www\js\custom.js" />
     </ItemGroup>
     <ItemGroup>
-        <Content Include="www\js\custom.js~" />
-    </ItemGroup>
-    <ItemGroup>
         <Content Include="www\js\index.js" />
     </ItemGroup>
     <ItemGroup>

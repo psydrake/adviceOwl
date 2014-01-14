@@ -1,4 +1,4 @@
-// Use in-app browser for iOS
+// Use in-app browser
 function openLink(link) {
 	if (link && link.match(/^mailto:/)) {
 		window.open(encodeURI(link)); 
@@ -11,7 +11,7 @@ function openLink(link) {
 // initialize admob banner and google analytics
 function doCustomActions() {
 	//createBannerView();
-	//initializeUniversalAnalytics();
+	initializeUniversalAnalytics();
 }
 
 // custom functions for iOS
@@ -64,6 +64,60 @@ function showAd() {
 }
 
 function initializeUniversalAnalytics() {
-	analytics.startTrackerWithId('UA-45095317-2');
-	analytics.trackView('Main - iOS');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    console.log('ga:', ga);
+    ga('create', 'UA-45095317-2', 'auto');
+    ga('send', 'pageview');
+    /*
+    $.ajax({
+       type: "POST",
+       //contentType: "application/x-www-form-urlencoded",
+       url:  'http://www.google-analytics.com',
+       data: { v: 1,                 // Version.
+	       tid: 'UA-45095317-2', // Tracking ID
+	       cid: getGUID(),       // Anonymous Client ID
+	       t: 'appview',         // Appview hit type
+	       an: 'adviceOwl',      // App name
+	       av: '1.4.24',         // App version
+	       cd: 'home'            // Screen name / content description
+	     },
+       success: function(data) {
+            console.log("success ", data.response);
+        },
+        error: function(data) {
+            console.log("error ", data.error);
+        }
+    });
+    */
+}
+
+function s4() {
+  return Math.floor((1 + Math.random()) * 0x10000)
+             .toString(16)
+             .substring(1);
+};
+
+function getNewGUID() {
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+         s4() + '-' + s4() + s4() + s4();
+}
+
+function getGUID() {
+    var guid = '555';
+    if (store) { // Get and use any cached content. Set forceRefresh to true if enough time has passed
+	guid = store.get('guid');
+	console.log('GUID from store:', guid);
+    }
+    if (!guid) {
+	guid = getNewGUID();
+	console.log('created new GUID:', guid);
+	if (store) {
+	    store.set('guid', guid);
+	    console.log('stored GUID');
+	}
+    }
+    return guid;
 }
