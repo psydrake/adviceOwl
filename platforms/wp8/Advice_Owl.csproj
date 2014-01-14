@@ -143,8 +143,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adviceOwlIcon_color_384_trans_border_512.png" />
-    <Content Include="adviceOwlIcon_color_512.png" />
     <Content Include="analytics.xml" />
     <Content Include="config.xml" />
     <Content Include="Images\appbar.back.rest.png" />
