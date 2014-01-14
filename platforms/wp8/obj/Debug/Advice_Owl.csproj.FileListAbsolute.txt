@@ -19,3 +19,5 @@ C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\net.edrake.adviceowl.g
 C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\net.edrake.adviceowl.dll
 C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\net.edrake.adviceowl.pdb
 C:\Users\Drake\projects\adviceOwl\platforms\wp8\obj\Debug\XapCacheFile.xml
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\Bin\Debug\GoogleAds.dll
+C:\Users\Drake\projects\adviceOwl\platforms\wp8\Bin\Debug\GoogleAds.xml

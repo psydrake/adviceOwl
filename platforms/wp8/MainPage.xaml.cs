@@ -33,6 +33,7 @@ using System.IO;
 using System.Windows.Media.Imaging;
 using System.Windows.Resources;
 
+using GoogleAds;
 
 namespace net.edrake.adviceowl
 {
@@ -45,11 +46,34 @@ namespace net.edrake.adviceowl
 
             InitializeComponent();
             this.CordovaView.Loaded += CordovaView_Loaded;
+            /*
+            // NOTE: Edit "MY_AD_UNIT_ID" with your ad unit id.
+            AdView bannerAd = new AdView
+            {
+                Format = AdFormats.Banner,
+                AdUnitID = "ca-app-pub-8928397865273246/1423865819"
+            };
+            bannerAd.ReceivedAd += OnAdReceived;
+            bannerAd.FailedToReceiveAd += OnFailedToReceiveAd;
+            LayoutRoot.Children.Add(bannerAd);
+            AdRequest adRequest = new AdRequest();
+            adRequest.ForceTesting = true;
+            bannerAd.LoadAd(adRequest);*/
         }
 
         private void CordovaView_Loaded(object sender, RoutedEventArgs e)
         {
             this.CordovaView.Loaded -= CordovaView_Loaded;
+        }
+
+        private void OnAdReceived(object sender, AdEventArgs e)
+        {
+            //Debug.WriteLine("Received ad successfully");
+        }
+
+        private void OnFailedToReceiveAd(object sender, AdErrorEventArgs errorCode)
+        {
+            //Debug.WriteLine("Failed to receive ad with error " + errorCode.ErrorCode);
         }
     }
 }
