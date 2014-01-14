@@ -41,6 +41,8 @@ namespace net.edrake.adviceowl
         // Constructor
         public MainPage()
         {
+            GoogleAnalytics.EasyTracker.GetTracker().SendView("Main - WP8");
+
             InitializeComponent();
             this.CordovaView.Loaded += CordovaView_Loaded;
         }
