@@ -1,1 +1,0 @@
-C:\Users\Drake\projects\adviceOwl\platforms\windows8\AppPackages\CordovaApp_1.4.0.0_AnyCPU_Debug_Test\CordovaApp_1.4.0.0_AnyCPU_Debug.appx
