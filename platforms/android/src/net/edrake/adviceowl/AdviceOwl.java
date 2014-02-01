@@ -36,7 +36,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class AdviceOwl extends CordovaActivity {
-    private static final String ADMOB_AD_UNIT = "ca-app-pub-8928397865273246/7142119013";
+	private final static String ADMOB_AD_UNIT = "ca-app-pub-xxxxxxxxxxxxxxxx/xxxxxxxxxx";
 	
     private String versionName = "0";
     private int versionCode = 0;
@@ -73,6 +73,7 @@ public class AdviceOwl extends CordovaActivity {
             e.printStackTrace();
         }
 
+		/* Not showing Android ads for BB10
 		// Google AdMob
 		AdView adView = new AdView(this, AdSize.BANNER, ADMOB_AD_UNIT); 
 		LinearLayout layout = super.root;
@@ -80,6 +81,7 @@ public class AdviceOwl extends CordovaActivity {
 
         timer = new Timer(); // Delay the launch of ads; otherwise we get a seg fault
         timer.schedule(new AdMobTask(adView), 10*1000); // delay 10 seconds
+		*/
     }
 
     class AdMobTask extends TimerTask {
