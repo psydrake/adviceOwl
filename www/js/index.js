@@ -259,8 +259,10 @@ function buildEntryString(name, entry, image) {
 	var title = fixTitle(name, entry.title);
 	
 	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '" data-entry-id="' + entry.link + '">' 
-	  + '<p><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
-	  + '<h1>' + title + '</h1>'
+	  + '<p><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\')">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a>'
+	  + '<a href="javascript:void(0)" onclick="expandEntry(\'' + entry.link + '\')" class="expandIcon expandCollapseIcon" style="display:none"><i class="fa fa-plus-square-o"></i></a>' 
+	  + '<a href="javascript:void(0)" onclick="collapseEntry(\'' + entry.link + '\')" class="collapseIcon expandCollapseIcon"><i class="fa fa-minus-square-o"></i></a>' 
+	  + '</p><h1>' + title + '</h1>'
 	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture" title="' + name + '"/>' : '') 
 	  + fixContent(entry.content) + '</div>'
 	  + '<div class="entryFooter">'
@@ -268,6 +270,18 @@ function buildEntryString(name, entry, image) {
 	  + '<div class="readLink"><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">Read</a></div>'
 	  + '</div>'
 	  + '</li>';
+}
+
+function expandEntry(link) {
+	$('#adviceList li[data-entry-id="' + link + '"] a.expandIcon').hide();
+	$('#adviceList li[data-entry-id="' + link + '"] .adviceEntry').slideDown('slow');
+	$('#adviceList li[data-entry-id="' + link + '"] a.collapseIcon').show();
+}
+
+function collapseEntry(link) {
+	$('#adviceList li[data-entry-id="' + link + '"] a.collapseIcon').hide();
+	$('#adviceList li[data-entry-id="' + link + '"] .adviceEntry').slideUp('slow');
+	$('#adviceList li[data-entry-id="' + link + '"] a.expandIcon').show();
 }
 
 function buildColumnNames() {

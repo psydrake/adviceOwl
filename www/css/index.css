@@ -240,3 +240,7 @@ h1 {
 	padding-right: 12pt;
 	padding-bottom: 6pt;
 }
+
+.expandCollapseIcon {
+	float: right;
+}
