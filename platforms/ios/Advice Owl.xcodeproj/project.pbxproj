@@ -33,6 +33,7 @@
 		43970C2E91CE4228A7917096 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C8CF59D7448D4495825ED09B /* libz.dylib */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		5D9AD2EB1932F6CD00AA4943 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9AD2EA1932F6CD00AA4943 /* libsqlite3.dylib */; };
 		5DA1CBC4182A950700AAE28D /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1CBC3182A950700AAE28D /* icon-120.png */; };
 		5DA1CBC6182A954500AAE28D /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1CBC5182A954500AAE28D /* icon-76.png */; };
 		5DA1CBC8182A955E00AAE28D /* icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1CBC7182A955E00AAE28D /* icon-152.png */; };
@@ -103,6 +104,7 @@
 		526752CC34004FC58AFE6BE6 /* CDVAdMob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVAdMob.m; path = com.rjfun.cordova.plugin.admob/CDVAdMob.m; sourceTree = "<group>"; };
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5D9AD2EA1932F6CD00AA4943 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5DA1CBC3182A950700AAE28D /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-120.png"; path = "Advice Owl/Resources/icons/icon-120.png"; sourceTree = "<group>"; };
 		5DA1CBC5182A954500AAE28D /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-76.png"; path = "Advice Owl/Resources/icons/icon-76.png"; sourceTree = "<group>"; };
 		5DA1CBC7182A955E00AAE28D /* icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-152.png"; path = "Advice Owl/Resources/icons/icon-152.png"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9AD2EB1932F6CD00AA4943 /* libsqlite3.dylib in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				6110819E750943A38E1920A2 /* SystemConfiguration.framework in Frameworks */,
 				5DCB42B31829A52800165AE1 /* MessageUI.framework in Frameworks */,
@@ -270,6 +273,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D9AD2EA1932F6CD00AA4943 /* libsqlite3.dylib */,
 				5DCB42B21829A52800165AE1 /* MessageUI.framework */,
 				5DCB42B01829A51700165AE1 /* AudioToolbox.framework */,
 				5DCB42AE1829A50E00165AE1 /* StoreKit.framework */,
@@ -544,8 +548,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Drake Emko (47FZX6VTK5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -554,7 +558,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Advice Owl/Advice Owl-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/revdrakeemko/projects/adviceOwl/vendor/ios/GoogleAdMobAdsSDKiOS-6.6.0",
@@ -589,7 +593,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Advice Owl";
-				PROVISIONING_PROFILE = "E0022250-5D0A-4B8A-A7CF-3683F0E89D41";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -599,15 +603,15 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Drake Emko (47FZX6VTK5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Advice Owl/Advice Owl-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Advice Owl/Advice Owl-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/revdrakeemko/projects/adviceOwl/vendor/ios/GoogleAdMobAdsSDKiOS-6.6.0",
@@ -642,7 +646,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "Advice Owl";
-				PROVISIONING_PROFILE = "E0022250-5D0A-4B8A-A7CF-3683F0E89D41";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

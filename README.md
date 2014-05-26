@@ -27,6 +27,9 @@ I have had success running the project on a virtual iPhone as well as my physica
 * iOS - `cordova emulate ios --verbose`
 * Android (plug your phone into your computer) - `cordova run android --verbose`
 
+iOS NOTE:
+If you run `cordova build ios`, be sure to run the `./fixIOSBuild.sh` script afterward - it fixes the casing for the app identifier that cordova automatically generates.
+
 ## Install On Your Phone / Tablet
 * [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
 * [Advice Owl for Kindle](http://www.amazon.com/Drake-Emko-Advice-Owl/dp/B00FTPNLES/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1381829714&sr=1-1)
