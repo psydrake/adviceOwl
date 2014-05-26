@@ -10,5 +10,11 @@ platforms/ios/Advice\ Owl.xcodeproj/xcuserdata
 platforms/ios/Advice\ Owl.xcodeproj/project.xcworkspace
 platforms/ios/Advice\ Owl.xcodeproj/project.pbxproj
 console.log
-chrome/app.zip
-chrome/www/*
+webapp/chrome.zip
+webapp/www/*
+platforms/wp8/www/
+obj/
+**/Bin/Debug/*
+*.suo
+*.user
+Thumbs.db

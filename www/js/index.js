@@ -82,7 +82,7 @@ function exitApp() {
 	return true;
 }
 
-var DEFAULT_VERSION_NAME = '1.4';
+var DEFAULT_VERSION_NAME = '1.5';
 var MILLISECONDS_WAIT = 6500; // base amount of time to wait between the start of feed displaying and the sort operation
 var MILLISECONDS_BETWEEN_REFRESH = 1000 * 60 * 60; // do a content refresh if it's been 1 hour since the last cache update
 var NUM_ENTRIES_PER_COLUMN = 2;
@@ -163,7 +163,8 @@ function loadColumns(forceRefresh) {
 
 function sortElements() {
 	$('#adviceList li').sort(function(a, b) {
-	    return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
+	    //return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
+	    return a.getAttribute('data-timestamp') > b.getAttribute('data-timestamp') ? -1 : 1;
 	}).appendTo('#adviceList');
 
 	$('#refreshImage').attr('src', 'img/refresh.png');
@@ -258,8 +259,10 @@ function buildEntryString(name, entry, image) {
 	var title = fixTitle(name, entry.title);
 	
 	return '<li data-timestamp="' + new Date(entry.publishedDate).getTime() + '" data-entry-id="' + entry.link + '">' 
-	  + '<p><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a></p>'
-	  + '<h1>' + title + '</h1>'
+	  + '<p><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\')">' + dateArr[0] + ' ' + dateArr[2] + ' ' + dateArr[1] + ', ' + dateArr[3] + '</a>'
+	  + '<a href="javascript:void(0)" onclick="expandEntry(\'' + entry.link + '\')" class="expandIcon expandCollapseIcon" style="display:none"><i class="fa fa-plus-square-o"></i></a>' 
+	  + '<a href="javascript:void(0)" onclick="collapseEntry(\'' + entry.link + '\')" class="collapseIcon expandCollapseIcon"><i class="fa fa-minus-square-o"></i></a>' 
+	  + '</p><h1>' + title + '</h1>'
 	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture" title="' + name + '"/>' : '') 
 	  + fixContent(entry.content) + '</div>'
 	  + '<div class="entryFooter">'
@@ -267,6 +270,18 @@ function buildEntryString(name, entry, image) {
 	  + '<div class="readLink"><a href="javascript:void(0)" onclick="openLink(\'' + entry.link + '\');">Read</a></div>'
 	  + '</div>'
 	  + '</li>';
+}
+
+function expandEntry(link) {
+	$('#adviceList li[data-entry-id="' + link + '"] a.expandIcon').hide();
+	$('#adviceList li[data-entry-id="' + link + '"] .adviceEntry').slideDown('slow');
+	$('#adviceList li[data-entry-id="' + link + '"] a.collapseIcon').show();
+}
+
+function collapseEntry(link) {
+	$('#adviceList li[data-entry-id="' + link + '"] a.collapseIcon').hide();
+	$('#adviceList li[data-entry-id="' + link + '"] .adviceEntry').slideUp('slow');
+	$('#adviceList li[data-entry-id="' + link + '"] a.expandIcon').show();
 }
 
 function buildColumnNames() {

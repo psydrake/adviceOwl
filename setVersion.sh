@@ -5,15 +5,17 @@
 # 2. run this script: ./setVersion.sh
 
 # Universal version - in Android, this is versionName
-VERSION=1.4
+VERSION=1.5
 
 # Only used in Android. Appended as minor version number if avaliable
-VERSION_CODE=24
+VERSION_CODE=25
 
 perl -pi -e "s/\sversion=\"\d+\.\d+\"\s/\ version=\"${VERSION}\"\ /" www/config.xml
-
 perl -pi -e "s/DEFAULT_VERSION_NAME\s*=\s*'\d+\.\d+'/DEFAULT_VERSION_NAME\ =\ '${VERSION}'/" www/js/index.js 
-
 perl -pi -e "s/android\:versionCode=\"\d+\"/android\:versionCode=\"${VERSION_CODE}\"/" platforms/android/AndroidManifest.xml
-
-perl -pi -e "s/\"version\"\:\ \"\d+\.\d+\.\d+\"/\"version\"\:\ \"${VERSION}\.${VERSION_CODE}\"/" chrome/app/manifest.json
+perl -pi -e "s/android\:versionCode=\"NaN\"/android\:versionCode=\"${VERSION_CODE}\"/"  platforms/android/ant-build/AndroidManifest.xml
+perl -pi -e "s/version\=\"\d+.\d+\"/version\=\"${VERSION}\"/" platforms/android/cordova/defaults.xml
+perl -pi -e "s/\"version\"\:\ \"\d+\.\d+\.\d+\"/\"version\"\:\ \"${VERSION}\.${VERSION_CODE}\"/" webapp/chrome/manifest.json
+perl -pi -e "s/\"version\"\:\ \"\d+\.\d+\.\d+\"/\"version\"\:\ \"${VERSION}\.${VERSION_CODE}\"/" webapp/merges/manifest.webapp
+perl -pi -e "s/\<appVersion\>\d+\.\d+\.\d+\<\/appVersion\>/\<appVersion\>${VERSION}\.${VERSION_CODE}\<\/appVersion\>/" platforms/wp8/analytics.xml
+perl -pi -e "s/\sVersion\=\"\d+\.\d+\"/ Version=\"${VERSION}\"/" platforms/wp8/Properties/WMAppManifest.xml
