@@ -27,13 +27,20 @@ I have had success running the project on a virtual iPhone as well as my physica
 * iOS - `cordova emulate ios --verbose`
 * Android (plug your phone into your computer) - `cordova run android --verbose`
 
+Android NOTE:
+If you run `cordova build android` and get the error: "platforms/android/ant-build/AndroidManifest.xml:2: error: Error: Float types not allowed (at 'versionCode' with value 'NaN')."
+	- run the `./setVersion.sh` script to overwrite the NaN value in that file
+
 iOS NOTE:
-If you run `cordova build ios`, be sure to run the `./fixIOSBuild.sh` script afterward - it fixes the casing for the app identifier that cordova automatically generates.
+If you run `cordova build ios`, be sure to run the `./fixIOSBuild.sh` script afterward - it fixes the incorrect casing for the app identifier that cordova automatically generates.
 
 ## Install On Your Phone / Tablet
 * [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
-* [Advice Owl for Kindle](http://www.amazon.com/Drake-Emko-Advice-Owl/dp/B00FTPNLES/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1381829714&sr=1-1)
 * [Advice Owl for iOS](https://itunes.apple.com/us/app/advice-owl/id739076106?ls=1&mt=8)
+* [Advice Owl for Windows Phone](http://www.windowsphone.com/en-us/store/app/advice-owl/5a4272fc-9ba8-42cd-82c7-b341cfb4973a)
+* [Advice Owl for Kindle](http://www.amazon.com/Drake-Emko-Advice-Owl/dp/B00FTPNLES/ref=sr_1_1?s=mobile-apps&ie=UTF8&qid=1381829714&sr=1-1)
+* [Advice Owl for Firefox OS](https://marketplace.firefox.com/app/advice-owl)
+* [Advice Owl for Blackberry 10](http://appworld.blackberry.com/webstore/content/43831887/)
 
 ## Use As A Web App
 * [Advice Owl in the Chrome Web Store](https://chrome.google.com/webstore/detail/advice-owl/pijbdbmaecnapkoefghdfiakpiiogeao)
