@@ -27,12 +27,10 @@ I have had success running the project on a virtual iPhone as well as my physica
 * iOS - `cordova emulate ios --verbose`
 * Android (plug your phone into your computer) - `cordova run android --verbose`
 
-Android NOTE:
-If you run `cordova build android` and get the error: "platforms/android/ant-build/AndroidManifest.xml:2: error: Error: Float types not allowed (at 'versionCode' with value 'NaN')."
-	- run the `./setVersion.sh` script to overwrite the NaN value in that file
-
-iOS NOTE:
-If you run `cordova build ios`, be sure to run the `./fixIOSBuild.sh` script afterward - it fixes the incorrect casing for the app identifier that cordova automatically generates.
+**UPDATE:** I updated cordova to version 3.5. Here are some issues that I've seen since then:
+* For Android: If you run `cordova build android` and get the error: "platforms/android/ant-build/AndroidManifest.xml:2: error: Error: Float types not allowed (at 'versionCode' with value 'NaN').",
+	run the `./setVersion.sh` script to overwrite the NaN value in that file.
+* For iOS: If you run `cordova build ios`, be sure to run the `./fixIOSBuild.sh` script afterward - it fixes the incorrect casing for the app identifier that cordova automatically generates.
 
 ## Install On Your Phone / Tablet
 * [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
