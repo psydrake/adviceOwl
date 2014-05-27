@@ -275,6 +275,9 @@
         <Content Include="www\favicon.ico" />
     </ItemGroup>
     <ItemGroup>
+        <Content Include="www\images\rec_star.gif" />
+    </ItemGroup>
+    <ItemGroup>
         <Content Include="www\img\advice_owl.png" />
     </ItemGroup>
     <ItemGroup>
@@ -345,6 +348,105 @@
     </ItemGroup>
     <ItemGroup>
         <Content Include="www\js\persist-min.js" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\css\font-awesome.css" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\css\font-awesome.min.css" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\fonts\fontawesome-webfont.ttf" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\fonts\fontawesome-webfont.woff" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\fonts\FontAwesome.otf" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\bordered-pulled.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\core.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\fixed-width.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\font-awesome.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\icons.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\larger.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\list.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\mixins.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\path.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\rotated-flipped.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\spinning.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\stacked.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\less\variables.less" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\font-awesome.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_bordered-pulled.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_core.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_fixed-width.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_icons.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_larger.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_list.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_mixins.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_path.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_rotated-flipped.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_spinning.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_stacked.scss" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="www\lib\font-awesome-4.1.0\scss\_variables.scss" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="www\main.html" />
