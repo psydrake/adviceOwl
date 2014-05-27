@@ -10,13 +10,15 @@ Thanks to all the Open Source developers who contributed to the libraries that m
 
 ## Project Structure
 This project is organized to make use of the Cordova command line tools (version 3.1).
-* `www`			- common web assets
-* `merges/android`	- Android specific web assets to override those in `www`
-* `merges/ios`		- iOS specific web assets to override those in `www`
+* `www`					- common web assets
+* `merges/android`		- Android specific web assets to override those in `www`
+* `merges/ios`			- iOS specific web assets to override those in `www`
+* `merges/wp8`			- Windows Phone 8 specific web assets to override those in `www`
 * `platforms/android`	- Android specific files
-* `platforms/ios`	- iOS / Xcode specific files
-* `chrome`		- files for the Chrome hosted web app
-* `chrome/app`		- metadata files for the Chrome hosted web app, including the manifest and icons
+* `platforms/ios`		- iOS / Xcode specific files
+* `platforms/wp8`		- Windows Phone 8 specific files
+* `webapp`				- files for hosted web app (Chrome, Firefox OS)
+* `webapp/chrome`		- metadata files for the Chrome hosted web app, including the manifest and icons
 
 ## Building and Running
 I originally wrote AdviceOwl using Apache Cordova 2.9 solely for Android. I later reorganized it to use [Apache Cordova 3.1](http://cordova.apache.org/docs/en/3.1.0/) for multiple Operating Systems, and have been building and running the project using the [Cordova 3.1 CLI](http://cordova.apache.org/docs/en/3.1.0/guide_cli_index.md.html#The%20Command-line%20Interface).
