@@ -4,6 +4,9 @@
 *.iml
 **/gen/*
 **/bin/*
+platforms/android/CordovaLib/ant-build
+platforms/android/ant-build
+platforms/android/ant-gen
 platforms/android/assets/www
 platforms/ios/www
 platforms/ios/Advice\ Owl.xcodeproj/xcuserdata

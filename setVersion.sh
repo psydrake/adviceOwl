@@ -8,9 +8,10 @@
 VERSION=1.5
 
 # Only used in Android. Appended as minor version number if avaliable
-VERSION_CODE=25
+VERSION_CODE=26
 
 perl -pi -e "s/\sversion=\"\d+\.\d+\"\s/\ version=\"${VERSION}\"\ /" www/config.xml
+perl -pi -e "s/\sandroid\-versionCode=\"\d+\"\s/\ android-versionCode=\"${VERSION_CODE}\"\ /" www/config.xml
 perl -pi -e "s/DEFAULT_VERSION_NAME\s*=\s*'\d+\.\d+'/DEFAULT_VERSION_NAME\ =\ '${VERSION}'/" www/js/index.js 
 perl -pi -e "s/android\:versionCode=\"\NaN\"/android\:versionCode=\"${VERSION_CODE}\"/" platforms/android/ant-build/AndroidManifest.xml
 perl -pi -e "s/android\:versionCode=\"\NaN\"/android\:versionCode=\"${VERSION_CODE}\"/" platforms/android/AndroidManifest.xml
