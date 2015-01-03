@@ -98,6 +98,7 @@ var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life
 	            {name: 'Tales From The Front', url: 'http://www.creators.com/advice/tales-from-the-front.rss', image: 'cheryl_lavin.jpg'},
 	            {name: 'At Work', url: 'http://www.creators.com/advice/at-work-lindsey-novak.rss', image: 'lindsey_novak.jpg'},
 	            {name: "Social Q's", url: 'http://topics.nytimes.com/top/features/style/fashionandstyle/columns/social_qs/?rss=1', image: 'nytimes.jpg'},
+				{name: 'Hi Tim', url: 'http://hitim.net/2/feed', image: 'tim_white.jpg'}, // 'http://www.utne.com/rss/blogs/hi_tim.aspx',
 	            {name: 'The Awl', url: 'http://feeds.feedburner.com/TheAwl?format=xml', image: 'the_awl.png', filter: {category: 'Advice'}}];
 
 function displayAbout() {

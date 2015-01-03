@@ -1,4 +1,4 @@
-<?xml version="1.5" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
@@ -23,10 +23,4 @@
 
     <!-- Preferences for Android -->
     <preference name="loglevel" value="DEBUG" />
-    <preference name="AndroidLaunchMode" value="singleTop" />
-
-    <!-- This is required for native Android hooks -->
-    <feature name="App">
-        <param name="android-package" value="org.apache.cordova.App" />
-    </feature>
 </widget>
