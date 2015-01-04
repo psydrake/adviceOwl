@@ -5,48 +5,34 @@
     },
     "config_munge": {
         "files": {
-            "config.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"AdMob\"><param name=\"ios-package\" value=\"CDVAdMob\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"UniversalAnalytics\"><param name=\"ios-package\" value=\"UniversalAnalyticsPlugin\" /></feature>",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
             "framework": {
                 "parents": {
                     "SystemConfiguration.framework": [
                         {
-                            "xml": "true",
-                            "count": 1
+                            "xml": "false",
+                            "count": 2
                         },
                         {
-                            "xml": "false",
-                            "count": 4
+                            "xml": "true",
+                            "count": 1
                         }
                     ],
-                    "CoreGraphics.framework": [
+                    "CoreData.framework": [
                         {
                             "xml": "false",
-                            "count": 4
+                            "count": 1
+                        }
+                    ],
+                    "AdSupport.framework": [
+                        {
+                            "xml": "false",
+                            "count": 2
+                        }
+                    ],
+                    "libz.dylib": [
+                        {
+                            "xml": "false",
+                            "count": 1
                         }
                     ],
                     "StoreKit.framework": [
@@ -67,21 +53,35 @@
                             "count": 1
                         }
                     ],
-                    "AdSupport.framework": [
+                    "CoreGraphics.framework": [
                         {
                             "xml": "false",
-                            "count": 4
+                            "count": 2
                         }
-                    ],
-                    "CoreData.framework": [
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
                         {
-                            "xml": "false",
+                            "xml": "<feature name=\"UniversalAnalytics\"><param name=\"ios-package\" value=\"UniversalAnalyticsPlugin\" /></feature>",
                             "count": 1
-                        }
-                    ],
-                    "libz.dylib": [
+                        },
                         {
-                            "xml": "false",
+                            "xml": "<feature name=\"AdMob\"><param name=\"ios-package\" value=\"CDVAdMob\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -90,19 +90,19 @@
         }
     },
     "installed_plugins": {
-        "org.apache.cordova.device": {
-            "PACKAGE_NAME": "net.edrake.adviceowl"
-        },
-        "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "net.edrake.adviceowl"
-        },
-        "org.apache.cordova.inappbrowser": {
+        "com.danielcwilson.plugins.googleanalytics": {
             "PACKAGE_NAME": "net.edrake.adviceowl"
         },
         "com.rjfun.cordova.plugin.admob": {
             "PACKAGE_NAME": "net.edrake.adviceowl"
         },
-        "com.danielcwilson.plugins.googleanalytics": {
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "net.edrake.adviceowl"
+        },
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "net.edrake.adviceowl"
+        },
+        "org.apache.cordova.network-information": {
             "PACKAGE_NAME": "net.edrake.adviceowl"
         }
     },

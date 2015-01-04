@@ -144,17 +144,7 @@
     return [super getCommandInstance:className];
 }
 
-/*
-   NOTE: this will only inspect execute calls coming explicitly from native plugins,
-   not the commandQueue (from JavaScript). To see execute calls from JavaScript, see
-   MainCommandQueue below
-*/
-- (BOOL)execute:(CDVInvokedUrlCommand*)command
-{
-    return [super execute:command];
-}
-
-- (NSString*)pathForResource:(NSString*)resourcepath;
+- (NSString*)pathForResource:(NSString*)resourcepath
 {
     return [super pathForResource:resourcepath];
 }
@@ -165,10 +155,10 @@
 
 /* To override, uncomment the line in the init function(s)
    in MainViewController.m
- */
 - (BOOL)execute:(CDVInvokedUrlCommand*)command
 {
     return [super execute:command];
 }
+*/
 
 @end
