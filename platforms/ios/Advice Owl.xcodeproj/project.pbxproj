@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0765052A056544DD9C447F96 /* UniversalAnalyticsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E779B9075B4AE480ECE3D9 /* UniversalAnalyticsPlugin.m */; };
 		17A0267A7E804E82869DD689 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F00D4D5EC48D473FA3CE269A /* libz.dylib */; };
