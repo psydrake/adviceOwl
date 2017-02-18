@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/drake/projects/adviceOwl/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/ic_launcher.png",
+        "source": "/home/drake/projects/adviceOwl/platforms/android/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/drake/projects/adviceOwl/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_previous_item.png",
+        "source": "/home/drake/projects/adviceOwl/platforms/android/res/drawable-hdpi/ic_action_previous_item.png"
+    },
+    {
+        "merged": "/home/drake/projects/adviceOwl/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/advice_owl.png",
+        "source": "/home/drake/projects/adviceOwl/platforms/android/res/drawable-hdpi/advice_owl.png"
+    },
+    {
+        "merged": "/home/drake/projects/adviceOwl/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_next_item.png",
+        "source": "/home/drake/projects/adviceOwl/platforms/android/res/drawable-hdpi/ic_action_next_item.png"
+    },
+    {
+        "merged": "/home/drake/projects/adviceOwl/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/ic_action_remove.png",
+        "source": "/home/drake/projects/adviceOwl/platforms/android/res/drawable-hdpi/ic_action_remove.png"
+    },
+    {
+        "merged": "/home/drake/projects/adviceOwl/platforms/android/build/intermediates/res/merged/debug/drawable-hdpi/icon.png",
+        "source": "/home/drake/projects/adviceOwl/platforms/android/res/drawable-hdpi/icon.png"
+    }
+]

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/drake/projects/adviceOwl/platforms/android/libs"><file name="GoogleAdMobAdsSdk-6.4.1.jar" path="/home/drake/projects/adviceOwl/platforms/android/libs/GoogleAdMobAdsSdk-6.4.1.jar"/><file name="libGoogleAnalyticsServices.jar" path="/home/drake/projects/adviceOwl/platforms/android/libs/libGoogleAnalyticsServices.jar"/></source></dataSet><dataSet config="release"><source path="/home/drake/projects/adviceOwl/platforms/android/src/release/jniLibs"/></dataSet></merger>

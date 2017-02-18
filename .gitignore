@@ -4,6 +4,8 @@
 *.iml
 **/gen/*
 **/bin/*
+platforms/android/local.properties
+platforms/android/CordovaLib/local.properties
 platforms/android/CordovaLib/ant-build
 platforms/android/ant-build
 platforms/android/ant-gen

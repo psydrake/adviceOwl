@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/drake/projects/adviceOwl/platforms/android/build/intermediates/res/merged/release/drawable-ldpi/ic_launcher.png",
+        "source": "/home/drake/projects/adviceOwl/platforms/android/res/drawable-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/drake/projects/adviceOwl/platforms/android/build/intermediates/res/merged/release/drawable-ldpi/icon.png",
+        "source": "/home/drake/projects/adviceOwl/platforms/android/res/drawable-ldpi/icon.png"
+    }
+]
