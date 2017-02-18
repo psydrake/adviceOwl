@@ -4,12 +4,12 @@
     <Languages xmlns="">
         <Language code="en-US" />
     </Languages>
-    <App Author="Drake Emko" BitsPerPixel="32" Description="Advice Owl gathers the latest articles from several of the most popular advice column RSS feeds, sorted by date on one convenient page. Satisfy your need for love, relationship, etiquette, work, and dating advice, all in one place!" Genre="apps.normal" ProductID="{84948356-7A0C-4341-B48D-90744CBA0AAA}" Publisher="Advice Owl" PublisherID="{db093ed5-53b1-45f7-af72-751e8f36ab80}" RuntimeType="Silverlight" Title="Advice Owl" Version="1.8" xmlns="">
+    <App Author="Drake Emko" BitsPerPixel="32" Description="Drake Emko" Genre="apps.normal" ProductID="{84948356-7A0C-4341-B48D-90744CBA0AAA}" Publisher="Drake Emko" PublisherID="{db093ed5-53b1-45f7-af72-751e8f36ab80}" RuntimeType="Silverlight" Title="Advice Owl" Version="1.8" xmlns="">
         <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
         <Capabilities>
             <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
-            <Capability Name="ID_CAP_NETWORKING" />
             <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+            <Capability Name="ID_CAP_NETWORKING" />
         </Capabilities>
         <Tasks>
             <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />

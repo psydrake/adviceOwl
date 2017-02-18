@@ -60,13 +60,13 @@
         "org.apache.cordova.network-information": {
             "PACKAGE_NAME": "net.edrake.adviceowl"
         },
-        "org.apache.cordova.inappbrowser": {
-            "PACKAGE_NAME": "net.edrake.adviceowl"
-        },
-        "com.rjfun.cordova.plugin.admob": {
-            "PACKAGE_NAME": "net.edrake.adviceowl"
-        },
         "com.danielcwilson.plugins.googleanalytics": {
+            "PACKAGE_NAME": "net.edrake.adviceowl"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "net.edrake.adviceowl"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "net.edrake.adviceowl"
         }
     },

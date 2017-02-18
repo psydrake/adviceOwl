@@ -27,14 +27,14 @@ import android.widget.LinearLayout;
 import android.view.View;
 
 import org.apache.cordova.*;
-import com.google.ads.*;
+//import com.google.ads.*;
 import com.google.analytics.tracking.android.EasyTracker;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class AdviceOwl extends CordovaActivity {
-    private static final String ADMOB_AD_UNIT = "ca-app-pub-8928397865273246/9320737011";
+    //private static final String ADMOB_AD_UNIT = "ca-app-pub-8928397865273246/9320737011";
 	
     private String versionName = "0";
     private int versionCode = 0;
@@ -53,14 +53,14 @@ public class AdviceOwl extends CordovaActivity {
         //super.loadUrl("file:///android_asset/www/index.html")
         
         // Display vertical scrollbar and hide horizontal scrollBar
-        super.appView.setVerticalScrollBarEnabled(true);
-        super.appView.setHorizontalScrollBarEnabled(false);
+        //super.appView.setVerticalScrollBarEnabled(true);
+        //super.appView.setHorizontalScrollBarEnabled(false);
         
         // set scrollbar style
-        super.appView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        //super.appView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         
         // make versionName and versionCode accessible in front end
-        super.appView.addJavascriptInterface(this, "AdviceOwl");
+        //super.appView.addJavascriptInterface(this, "AdviceOwl");
         
         Context context = getApplicationContext();
         try {
@@ -72,15 +72,15 @@ public class AdviceOwl extends CordovaActivity {
         }
 
 		// Google AdMob
-		AdView adView = new AdView(this, AdSize.BANNER, ADMOB_AD_UNIT); 
-		LinearLayout layout = super.root;
-		layout.addView(adView); 
+		//AdView adView = new AdView(this, AdSize.BANNER, ADMOB_AD_UNIT); 
+		//LinearLayout layout = super.root;
+		//layout.addView(adView); 
 
-        timer = new Timer(); // Delay the launch of ads; otherwise we get a seg fault
-        timer.schedule(new AdMobTask(adView), 10*1000); // delay 10 seconds
+        //timer = new Timer(); // Delay the launch of ads; otherwise we get a seg fault
+        //timer.schedule(new AdMobTask(adView), 10*1000); // delay 10 seconds
     }
 
-    class AdMobTask extends TimerTask {
+    /*class AdMobTask extends TimerTask {
 		private Handler mHandler = new Handler(Looper.getMainLooper());
 		private AdView adView;
 
@@ -99,7 +99,7 @@ public class AdviceOwl extends CordovaActivity {
 				}
 			});
         }
-    }
+	}*/
 
     @Override
     public void onStart() {

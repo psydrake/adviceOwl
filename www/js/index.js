@@ -134,16 +134,23 @@ function loadColumns(forceRefresh) {
 
 	//console.log('forceRefresh? ' + forceRefresh + ', adviceContent? ' + (adviceContent ? true : false));
 	if (forceRefresh || !adviceContent) {
-		var columnNamesList = downloadAndDisplayEntries();
-		if (columnNamesList && columnNamesList.length) {
-			if ($('#aboutColumnNames').length < 1) { // add column names element in About modal, only if it isn't already there
-				$('#aboutList').append('<li id="aboutColumnNames"><strong>Columns:</strong> ' + buildColumnNames(columnNamesList) + '</li>');
+		downloadAndDisplayEntries().then(
+			function(columnNamesList) {
+				if (columnNamesList && columnNamesList.length) {
+					if ($('#aboutColumnNames').length < 1) { // add column names element in About modal, only if it isn't already there
+						$('#aboutList').append('<li id="aboutColumnNames"><strong>Columns:</strong> ' + buildColumnNames(columnNamesList) + '</li>');
+					}
+					sortElements();
+					endLoadingMoments();
+					window.setTimeout('cleanupOldColumnEntries()', 1000);
+					window.setTimeout('saveColumnEntriesToCache()', 2000);
+				}
+			},
+			function(error) {
+				console.log("Error downloading and displaying entries.", error);
+				endLoadingMoments();				
 			}
-			sortElements();
-			endLoadingMoments();
-			window.setTimeout('cleanupOldColumnEntries()', 1000);
-			window.setTimeout('saveColumnEntriesToCache()', 2000);
-		}
+		);
 	}
 	else {
 		endLoadingMoments();
@@ -197,31 +204,45 @@ function loadAbout() {
 
 // returns list of unique column names (e.g. Dear Prudence) added from entries.xml in adviceowl s3 bucket
 function downloadAndDisplayEntries() {
-	var request = new XMLHttpRequest();
+	/*var request = new XMLHttpRequest();
 	request.open("GET", "https://s3-us-west-2.amazonaws.com/adviceowlfeed/entries.xml", false);
 	request.send();
-	var xml = request.responseXML;
-	var entries = xml.getElementsByTagName("entry");
+	var xml = request.responseXML;*/
 
-	var columnNames = [];
-	for (var i = 0; i < entries.length; i++) {
-	    var entry = entries[i];
-	    var name = entry.getElementsByTagName("name")[0].innerHTML;
-		if (columnNames.indexOf(name) < 0) {
-			columnNames.push(name);
-		}
-		var image = entry.getElementsByTagName("image")[0].innerHTML;
-	    var link = entry.getElementsByTagName("link")[0].innerHTML;
-		var pubDate = entry.getElementsByTagName("pubDate")[0].innerHTML;
-	    var title = entry.getElementsByTagName("title")[0].textContent;
-		var description = entry.getElementsByTagName("description")[0].textContent;
+	var deferred = new $.Deferred();
+	$.ajax({
+		type: 'GET',
+		url: 'https://s3-us-west-2.amazonaws.com/adviceowlfeed/entries.xml',
+		success: function(resp) {
+			var entries = resp.getElementsByTagName("entry");
+
+			var columnNames = [];
+			for (var i = 0; i < entries.length; i++) {
+			    var entry = entries[i];
+			    var name = entry.getElementsByTagName("name")[0].innerHTML;
+				if (columnNames.indexOf(name) < 0) {
+					columnNames.push(name);
+				}
+				var image = entry.getElementsByTagName("image")[0].innerHTML;
+			    var link = entry.getElementsByTagName("link")[0].innerHTML;
+				var pubDate = entry.getElementsByTagName("pubDate")[0].innerHTML;
+			    var title = entry.getElementsByTagName("title")[0].textContent;
+				var description = entry.getElementsByTagName("description")[0].textContent;
 		
-		var entryJson = {title: title, publishedDate: pubDate, link: link, content: description};		
-        if ($('#adviceList li[data-entry-id="' + entryJson.link + '"]').length === 0) { // if entry isn't already included
-        	$('#adviceList').append(buildEntryString(name, entryJson, image));		        	
-        }
-	}
-	return columnNames;
+				var entryJson = {title: title, publishedDate: pubDate, link: link, content: description};		
+		        if ($('#adviceList li[data-entry-id="' + entryJson.link + '"]').length === 0) { // if entry isn't already included
+		        	$('#adviceList').append(buildEntryString(name, entryJson, image));		        	
+		        }
+			}
+			deferred.resolve(columnNames);
+		},
+		error: function(err) {
+			console.log("Error!", err);
+			deferred.reject(err);
+		}
+	});
+
+	return deferred.promise();
 }
 
 // this output appended to the document
