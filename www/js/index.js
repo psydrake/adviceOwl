@@ -82,24 +82,9 @@ function exitApp() {
 	return true;
 }
 
-var DEFAULT_VERSION_NAME = '1.7';
-var MILLISECONDS_WAIT = 6500; // base amount of time to wait between the start of feed displaying and the sort operation
+var DEFAULT_VERSION_NAME = '1.8';
 var MILLISECONDS_BETWEEN_REFRESH = 1000 * 60 * 60; // do a content refresh if it's been 1 hour since the last cache update
-var NUM_ENTRIES_PER_COLUMN = 2;
-var feedList = [{name: 'Dear Prudence', url: 'http://www.slate.com/articles/life/dear_prudence.fulltext.all.10.rss', image: 'prudie.jpg'},
-                {name: 'Ask Amy', url: 'http://amydickinson.com/rss', image: 'amy_dickenson.jpg', filter: {category: 'Ask Amy'}},
-	            {name: 'Carolyn Hax', url: 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax', image: 'hax.jpg'},
-	            {name: 'Savage Love', url: 'http://www.thestranger.com/gyrobase/Rss.xml?category=258', image: 'savage.jpg'},
-	            {name: "Annie's Mailbox", url: 'http://www.creators.com/advice/annies-mailbox.rss', image: 'annies.jpg'},
-	            {name: 'Dear Margo', url: 'http://www.creators.com/advice/dear-margo.rss', image: 'margo.jpg'},
-	            {name: 'Miss Information', url: 'http://www.nerve.com/taxonomy/term/95215/all/feed', image: 'miss_information.jpg'},
-	            {name: 'Questionable Advice', url: 'http://www.creators.com/advice/questionable-advice.rss', image: 'jessica_leigh.jpg'},
-	            {name: 'The Advice Goddess', url: 'http://www.creators.com/advice/advice-goddess-amy-alkon.rss', image: 'amy_alkon.jpg'},
-	            {name: 'Tales From The Front', url: 'http://www.creators.com/advice/tales-from-the-front.rss', image: 'cheryl_lavin.jpg'},
-	            {name: 'At Work', url: 'http://www.creators.com/advice/at-work-lindsey-novak.rss', image: 'lindsey_novak.jpg'},
-	            {name: "Social Q's", url: 'http://topics.nytimes.com/top/features/style/fashionandstyle/columns/social_qs/?rss=1', image: 'nytimes.jpg'},
-				{name: 'Hi Tim', url: 'http://hitim.net/2/feed', image: 'tim_white.jpg'}, // 'http://www.utne.com/rss/blogs/hi_tim.aspx',
-	            {name: 'The Awl', url: 'http://feeds.feedburner.com/TheAwl?format=xml', image: 'the_awl.png', filter: {category: 'Advice'}}];
+var MAX_NUM_ENTRIES = 40;
 
 function displayAbout() {
 	$('#menu').hide();
@@ -149,17 +134,25 @@ function loadColumns(forceRefresh) {
 
 	//console.log('forceRefresh? ' + forceRefresh + ', adviceContent? ' + (adviceContent ? true : false));
 	if (forceRefresh || !adviceContent) {
-		for (i = 0; i < feedList.length; i++) {
-			displayColumnEntries(feedList[i]['name'], feedList[i]['url'], feedList[i]['image'], feedList[i]['filter']);
+		var columnNamesList = downloadAndDisplayEntries();
+		if (columnNamesList && columnNamesList.length) {
+			if ($('#aboutColumnNames').length < 1) { // add column names element in About modal, only if it isn't already there
+				$('#aboutList').append('<li id="aboutColumnNames"><strong>Columns:</strong> ' + buildColumnNames(columnNamesList) + '</li>');
+			}
+			sortElements();
+			endLoadingMoments();
+			window.setTimeout('cleanupOldColumnEntries()', 1000);
+			window.setTimeout('saveColumnEntriesToCache()', 2000);
 		}
-		window.setTimeout('sortElements()', MILLISECONDS_WAIT);
-		window.setTimeout('cleanupOldColumnEntries()', MILLISECONDS_WAIT + 1500);
-		window.setTimeout('saveColumnEntriesToCache()', MILLISECONDS_WAIT + 3500);
 	}
 	else {
-		$('#refreshImage').attr('src', 'img/refresh.png');
-		$('#ajax-loader').fadeOut('slow');
+		endLoadingMoments();
 	}
+}
+
+function endLoadingMoments() {
+	$('#refreshImage').attr('src', 'img/refresh.png');
+	$('#ajax-loader').fadeOut('slow');
 }
 
 function sortElements() {
@@ -167,16 +160,11 @@ function sortElements() {
 	    //return a.dataset.timestamp > b.dataset.timestamp ? -1 : 1;
 	    return a.getAttribute('data-timestamp') > b.getAttribute('data-timestamp') ? -1 : 1;
 	}).appendTo('#adviceList');
-
-	$('#refreshImage').attr('src', 'img/refresh.png');
-	$('#ajax-loader').fadeOut('slow');
 }
 
 function cleanupOldColumnEntries() {
-	var maxEntries = feedList.length * NUM_ENTRIES_PER_COLUMN;
-	$("#adviceList li").each(function( index ) {
-		  if (index > maxEntries) {
-			  //console.log('in cleanupOldColumnEntries() - max of ' + maxEntries + ' reached. Deleting entry ' + index)
+	$("#adviceList li").each(function(index) {
+		  if (index > MAX_NUM_ENTRIES) {
 			  $(this).remove();
 		  }
 	});
@@ -188,14 +176,11 @@ function saveColumnEntriesToCache() {
 		if (adviceContent) {
 			store.set('adviceContent', adviceContent);
 			store.set('lastUpdated', new Date().getTime())
-			//console.log('set adviceContent to cache');
 		}
 	}
 }
 
-function loadAbout() {
-	$('#aboutList').append('<li><strong>Columns:</strong> ' + buildColumnNames() + '</li>');
-	
+function loadAbout() {	
 	var versionName = DEFAULT_VERSION_NAME;
 	if (window.AdviceOwl && window.AdviceOwl.getVersionName) {
 		versionName = window.AdviceOwl.getVersionName();
@@ -210,51 +195,36 @@ function loadAbout() {
 	$('#versionCode').text(versionCode);
 }
 
-function displayColumnEntries(name, url, image, filter) {
-	$.jGFeed(url, function(feeds) {
-	    // Check for errors
-	    if (!feeds || feeds === undefined) {
-	    	alert('Sorry - there has been an error receiving the advice column feeds.');
-	    	return false;
-	    }
-	
-	    var numEntries = 0; // because of filters, we need to keep track of how many entries actually included
-		for (var j=0; j < feeds.entries.length && numEntries < NUM_ENTRIES_PER_COLUMN; j++) {
-	        var entry = feeds.entries[j];
-	        if (shouldIncludeEntry(entry, filter)) {
-		        if ($('#adviceList li[data-entry-id="' + entry.link + '"]').length === 0) {
-		        	$('#adviceList').append(buildEntryString(name, entry, image));		        	
-		        }
-	        	numEntries++; // count the entry if it should be included, even if we didn't append to the display
-	        	//console.log('numEntries for ' + name + ': ' + numEntries);
-	        }
+// returns list of unique column names (e.g. Dear Prudence) added from entries.xml in adviceowl s3 bucket
+function downloadAndDisplayEntries() {
+	var request = new XMLHttpRequest();
+	request.open("GET", "https://s3-us-west-2.amazonaws.com/adviceowlfeed/entries.xml", false);
+	request.send();
+	var xml = request.responseXML;
+	var entries = xml.getElementsByTagName("entry");
+
+	var columnNames = [];
+	for (var i = 0; i < entries.length; i++) {
+	    var entry = entries[i];
+	    var name = entry.getElementsByTagName("name")[0].innerHTML;
+		if (columnNames.indexOf(name) < 0) {
+			columnNames.push(name);
 		}
-	}, // if there is a filter, increase number of entries to examine, since most entries may not qualify  
-	filter === undefined ? NUM_ENTRIES_PER_COLUMN : NUM_ENTRIES_PER_COLUMN * 10);
+		var image = entry.getElementsByTagName("image")[0].innerHTML;
+	    var link = entry.getElementsByTagName("link")[0].innerHTML;
+		var pubDate = entry.getElementsByTagName("pubDate")[0].innerHTML;
+	    var title = entry.getElementsByTagName("title")[0].textContent;
+		var description = entry.getElementsByTagName("description")[0].textContent;
+		
+		var entryJson = {title: title, publishedDate: pubDate, link: link, content: description};		
+        if ($('#adviceList li[data-entry-id="' + entryJson.link + '"]').length === 0) { // if entry isn't already included
+        	$('#adviceList').append(buildEntryString(name, entryJson, image));		        	
+        }
+	}
+	return columnNames;
 }
 
-function shouldIncludeEntry(entry, filter) {
-	if (filter === undefined) {
-		return true; // no filter - include entry by default
-	}
-
-	if (filter['category'] !== undefined) { // filtering is by category
-		if (entry.categories && entry.categories.length > 0) {
-			for (i = 0; i < entry.categories.length; i++) {
-				//console.log('for entry', entry.title, 'checking filter', filter.category, 'vs:', entry.categories[i]);
-				if (filter.category === entry.categories[i]) {
-					//console.log('Found it - returning true');
-					return true;
-				}
-			}
-		}
-	}
-
-	// there was a filter, but we couldn't match it
-	//console.log('Did not find a category match - returning false');
-	return false;
-}
-
+// this output appended to the document
 function buildEntryString(name, entry, image) {
 	var dateArr = entry.publishedDate.split(' ');
 	var title = fixTitle(name, entry.title);
@@ -264,7 +234,7 @@ function buildEntryString(name, entry, image) {
 	  + '<a href="javascript:void(0)" onclick="expandEntry(\'' + entry.link + '\')" class="expandIcon expandCollapseIcon" style="display:none"><i class="fa fa-plus-square-o"></i></a>' 
 	  + '<a href="javascript:void(0)" onclick="collapseEntry(\'' + entry.link + '\')" class="collapseIcon expandCollapseIcon"><i class="fa fa-minus-square-o"></i></a>' 
 	  + '</p><h1>' + title + '</h1>'
-	  + '<div class="adviceEntry">' + (typeof image !== 'undefined' ? '<img class="columnistImage" src="img/columnist/' + image + '" alt="' + name + ' Picture" title="' + name + '"/>' : '') 
+	  + '<div class="adviceEntry"><img class="columnistImage" src="' + image + '" alt="' + name + '" title="' + name + '"/>'
 	  + fixContent(entry.content) + '</div>'
 	  + '<div class="entryFooter">'
 	  + '<div class="toTop"><a href="javascript:void(0)" onclick="return scrollToTop();">^ Top</a></div>'
@@ -285,11 +255,11 @@ function collapseEntry(link) {
 	$('#adviceList li[data-entry-id="' + link + '"] a.expandIcon').show();
 }
 
-function buildColumnNames() {
+function buildColumnNames(columnNamesList) {
 	var html = '';
-	for (i = 0; i < feedList.length; i++) {
-		html += feedList[i].name;
-		if (i < feedList.length - 1) {
+	for (i = 0; columnNamesList && i < columnNamesList.length; i++) {
+		html += columnNamesList[i];
+		if (i < columnNamesList.length - 1) {
 			html += ', ';
 		} 
 	}
