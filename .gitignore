@@ -4,12 +4,14 @@
 *.iml
 **/gen/*
 **/bin/*
+platforms/android/.gradle/*
 platforms/android/local.properties
 platforms/android/CordovaLib/local.properties
 platforms/android/CordovaLib/ant-build
 platforms/android/ant-build
 platforms/android/ant-gen
 platforms/android/assets/www
+platforms/android/build/*
 platforms/ios/www
 platforms/ios/Advice\ Owl.xcodeproj/xcuserdata
 platforms/ios/Advice\ Owl.xcodeproj/project.xcworkspace

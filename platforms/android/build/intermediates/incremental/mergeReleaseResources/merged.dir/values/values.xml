@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <bool name="ga_autoActivityTracking">true</bool>
-    <bool name="ga_reportUncaughtExceptions">true</bool>
-    <string name="app_name">Advice Owl</string>
-    <string name="ga_trackingId">UA-45095317-2</string>
-</resources>
