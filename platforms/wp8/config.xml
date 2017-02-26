@@ -1,19 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="29" id="net.edrake.adviceowl" version="1.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="31" id="net.edrake.adviceowl" version="1.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="InAppBrowser">
+        <param name="wp-package" value="InAppBrowser" />
+    </feature>
+    <feature name="UniversalAnalytics">
+        <param name="wp-package" value="UniversalAnalyticsPlugin" />
+    </feature>
     <feature name="Device">
         <param name="wp-package" value="Device" />
     </feature>
     <feature name="NetworkStatus">
         <param name="wp-package" value="NetworkStatus" />
     </feature>
-    <feature name="InAppBrowser">
-        <param name="wp-package" value="InAppBrowser" />
-    </feature>
     <name>Advice Owl</name>
     <description>
         Read all your favorite advice columns in one app. Advice Owl gathers the latest articles from several of the most popular advice column RSS feeds, including Dear Prudence, Ask Amy, and Savage Love. The results are displayed for you in one convenient page, sorted by date. Satisfy your need for love, relationship, etiquette, work, and dating advice, all in one place!
     </description>
     <access origin="*" />
+    <allow-intent href="*" />
     <author email="drakee@gmail.com" href="https://github.com/psydrake">
         Drake Emko
     </author>

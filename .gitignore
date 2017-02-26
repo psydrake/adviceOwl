@@ -17,6 +17,9 @@ platforms/ios/www
 platforms/ios/Advice\ Owl.xcodeproj/xcuserdata
 platforms/ios/Advice\ Owl.xcodeproj/project.xcworkspace
 platforms/ios/Advice\ Owl.xcodeproj/project.pbxproj
+platforms/ios/Advice\ Owl.xcarchive
+platforms/ios/Advice\ Owl.xcworkspace
+platforms/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata
 console.log
 webapp/chrome.zip
 webapp/www/*

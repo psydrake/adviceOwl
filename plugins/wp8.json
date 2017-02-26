@@ -40,19 +40,19 @@
         }
     },
     "installed_plugins": {
-        "com.danielcwilson.plugins.googleanalytics": {
-            "PACKAGE_NAME": "{84948356-7A0C-4341-B48D-90744CBA0AAA}"
-        },
-        "org.apache.cordova.device": {
-            "PACKAGE_NAME": "{84948356-7A0C-4341-B48D-90744CBA0AAA}"
-        },
-        "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "{84948356-7A0C-4341-B48D-90744CBA0AAA}"
-        },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "{84948356-7A0C-4341-B48D-90744CBA0AAA}"
         },
         "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "{84948356-7A0C-4341-B48D-90744CBA0AAA}"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "{84948356-7A0C-4341-B48D-90744CBA0AAA}"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "{84948356-7A0C-4341-B48D-90744CBA0AAA}"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "{84948356-7A0C-4341-B48D-90744CBA0AAA}"
         }
     },

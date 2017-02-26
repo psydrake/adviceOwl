@@ -54,19 +54,19 @@
         }
     },
     "installed_plugins": {
-        "org.apache.cordova.device": {
-            "PACKAGE_NAME": "net.edrake.adviceowl"
-        },
-        "org.apache.cordova.network-information": {
-            "PACKAGE_NAME": "net.edrake.adviceowl"
-        },
-        "com.danielcwilson.plugins.googleanalytics": {
-            "PACKAGE_NAME": "net.edrake.adviceowl"
-        },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "net.edrake.adviceowl"
         },
         "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "net.edrake.adviceowl"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "net.edrake.adviceowl"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "net.edrake.adviceowl"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "net.edrake.adviceowl"
         }
     },
