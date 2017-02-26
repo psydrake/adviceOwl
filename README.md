@@ -30,8 +30,8 @@ If you don't have Cordova 3.1 installed, follow the [CLI instructions](http://co
 I have had success running the project on a virtual iPhone as well as my physical Android phone. On the command line, within the project directory:
 * **iOS:**
   `cordova emulate ios --verbose`
-  * **NOTE For iOS** (a note to myself before uploading the app package to iTunes connect):
-    * Run the `./fixIOSBuild.sh` script before running `cordova build ios`, be sure to - it fixes the incorrect casing for the app identifier that cordova automatically generates.
+  * **NOTE For iOS** (a reminder to myself before uploading the app package to iTunes connect):
+    * Run the `./fixIOSBuild.sh` script before running `cordova build ios` - it fixes the incorrect casing for the app identifier that cordova automatically generates.
     * After successfully packaging the app for iOS, run `./revertPackageName.sh` to revert the parts of `./fixIOSBuild.sh` that affect Android, so your next Android build will be successful.
   * **NOTE:** This system is terrible, but I made the mistake of provisioning Advice Owl's bundle/app ID as `net.edrake.AdviceOwl` instead of `net.edrake.adviceowl` on Apple's developer site, so here we are.
 
