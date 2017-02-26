@@ -28,17 +28,20 @@ If you don't have Cordova 3.1 installed, follow the [CLI instructions](http://co
 **UPDATE:** This project now uses [Cordova 6.5.0](https://www.npmjs.com/package/cordova).
 
 I have had success running the project on a virtual iPhone as well as my physical Android phone. On the command line, within the project directory:
-* iOS: `cordova emulate ios --verbose`
-* Android (plug your phone into your computer): `cordova run android --verbose`
-  * UPDATE: `cordova emulate android --verbose` works for me, as of Cordova 6.5.0
-
-* For Android: If you run `cordova build android` and get the error: "platforms/android/ant-build/AndroidManifest.xml:2: error: Error: Float types not allowed (at 'versionCode' with value 'NaN').",
-	run the `./setVersion.sh` script to overwrite the NaN value in that file.
-
-* For iOS (a note to myself before uploading the app package to iTunes connect):
-  * Run the `./fixIOSBuild.sh` script before running `cordova build ios`, be sure to - it fixes the incorrect casing for the app identifier that cordova automatically generates.
-  * After successfully packaging the app for iOS, run `./revertPackageName.sh` to revert the parts of `./fixIOSBuild.sh` that affect Android, so your next Android build will be successful.
+* **iOS:**
+  `cordova emulate ios --verbose`
+  * **NOTE For iOS** (a note to myself before uploading the app package to iTunes connect):
+    * Run the `./fixIOSBuild.sh` script before running `cordova build ios`, be sure to - it fixes the incorrect casing for the app identifier that cordova automatically generates.
+    * After successfully packaging the app for iOS, run `./revertPackageName.sh` to revert the parts of `./fixIOSBuild.sh` that affect Android, so your next Android build will be successful.
   * **NOTE:** This system is terrible, but I made the mistake of provisioning Advice Owl's bundle/app ID as `net.edrake.AdviceOwl` instead of `net.edrake.adviceowl` on Apple's developer site, so here we are.
+
+
+* **Android (plug your phone into your computer):**
+  `cordova run android --verbose`
+  * UPDATE: `cordova emulate android --verbose` works for me, as of Cordova 6.5.0
+  * **NOTE for Android:**
+    * If you run `cordova build android` and get the error: "platforms/android/ant-build/AndroidManifest.xml:2: error: Error: Float types not allowed (at 'versionCode' with value 'NaN').",
+      run the `./setVersion.sh` script to overwrite the NaN value in that file.
 
 ## Install On Your Phone / Tablet
 * [Advice Owl for Android](https://play.google.com/store/apps/details?id=net.edrake.adviceowl)
