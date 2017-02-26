@@ -202,10 +202,6 @@
         </PostBuildEvent>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="GoogleAds, Version=6.5.11.0, Culture=neutral, processorArchitecture=MSIL">
-            <SpecificVersion>False</SpecificVersion>
-            <HintPath>..\..\vendor\wp8\googlemobileadssdk\GoogleAds.dll</HintPath>
-        </Reference>
         <Reference Include="GoogleAnalytics">
             <HintPath>packages\GoogleAnalyticsSDK.1.1.01\lib\windowsphone8\GoogleAnalytics.dll</HintPath>
         </Reference>
